@@ -52,3 +52,4 @@ skills-lock.json
 tests/e2e/
 playwright-report/
 test-results/
+.vercel

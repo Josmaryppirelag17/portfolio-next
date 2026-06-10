@@ -12,69 +12,70 @@ concurrency:
 
 jobs:
   quality:
-    name: Quality (typecheck + lint + test)
+    name: Quality (typecheck + lint + test + sonar)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66dd77 # v4
+      - uses: pnpm/action-setup@v4
         with:
           version: 11
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: pnpm
-          cache-dependency-path: nuevo/portfolio-v2-migrated/pnpm-lock.yaml
 
       - run: pnpm install --frozen-lockfile
-        working-directory: nuevo/portfolio-v2-migrated
 
       - run: pnpm typecheck
-        working-directory: nuevo/portfolio-v2-migrated
 
       - run: pnpm lint
-        working-directory: nuevo/portfolio-v2-migrated
 
       - run: pnpm test
-        working-directory: nuevo/portfolio-v2-migrated
 
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: failure()
+      - name: Upload coverage for SonarCloud
+        uses: actions/upload-artifact@v4
+        if: success()
         with:
           name: coverage
-          path: nuevo/portfolio-v2-migrated/coverage/
+          path: coverage/
           retention-days: 7
+
+      - name: SonarCloud Analysis
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        if: success()
 
   e2e:
     name: E2E (Playwright)
     runs-on: ubuntu-latest
     needs: quality
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66dd77 # v4
+      - uses: pnpm/action-setup@v4
         with:
           version: 11
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: pnpm
-          cache-dependency-path: nuevo/portfolio-v2-migrated/pnpm-lock.yaml
 
       - run: pnpm install --frozen-lockfile
-        working-directory: nuevo/portfolio-v2-migrated
 
       - run: pnpm exec playwright install --with-deps chromium
-        working-directory: nuevo/portfolio-v2-migrated
 
       - run: pnpm test:e2e
-        working-directory: nuevo/portfolio-v2-migrated
 
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: playwright-report
-          path: nuevo/portfolio-v2-migrated/playwright-report/
+          path: playwright-report/
           retention-days: 7
