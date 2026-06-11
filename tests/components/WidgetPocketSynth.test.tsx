@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeAll } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import WidgetPocketSynth from "@/components/molecules/WidgetPocketSynth";
 
 vi.mock("@/components/organisms/SoundEngine", () => ({
@@ -14,7 +14,13 @@ vi.mock("@/components/atoms/WidgetShell", () => ({
 
 describe("WidgetPocketSynth", () => {
   beforeAll(() => {
-    vi.stubGlobal("window", { ...window, AudioContext: vi.fn(), webkitAudioContext: undefined });
+    vi.stubGlobal("AudioContext", vi.fn(() => ({
+      createOscillator: () => ({ connect: vi.fn(), start: vi.fn(), stop: vi.fn(), type: "", frequency: { setValueAtTime: vi.fn() } }),
+      createGain: () => ({ connect: vi.fn(), gain: { setValueAtTime: vi.fn(), exponentialRampToValueAtTime: vi.fn() } }),
+      currentTime: 0,
+      destination: {},
+      close: vi.fn(),
+    })));
   });
 
   it("renders white keys", () => {
@@ -51,5 +57,27 @@ describe("WidgetPocketSynth", () => {
   it("renders Octave button", () => {
     render(<WidgetPocketSynth />);
     expect(screen.getByText(/OCT:/)).toBeDefined();
+  });
+
+  it("cycles oscillator type on OSC click", () => {
+    render(<WidgetPocketSynth />);
+    const btn = screen.getByText(/OSC:/);
+    expect(btn.textContent).toMatch(/triangle/i);
+    fireEvent.click(btn);
+    expect(screen.getByText(/OSC: sine/i)).toBeDefined();
+  });
+
+  it("increases decay on Decay click", () => {
+    render(<WidgetPocketSynth />);
+    const btn = screen.getByText(/DECAY:/);
+    fireEvent.click(btn);
+    expect(screen.getByText(/DECAY: 0.45/)).toBeDefined();
+  });
+
+  it("cycles octave on Octave click", () => {
+    render(<WidgetPocketSynth />);
+    const btn = screen.getByText(/OCT:/);
+    fireEvent.click(btn);
+    expect(screen.getByText(/OCT: 5/)).toBeDefined();
   });
 });

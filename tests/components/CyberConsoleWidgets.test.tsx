@@ -24,8 +24,8 @@ vi.mock("@/components/molecules/WidgetMemoryCollector", () => ({
   default: () => <div data-testid="widget-memory-collector" />,
 }));
 vi.mock("@/components/molecules/WidgetRetroTerminal", () => ({
-  default: (props: Record<string, unknown>) => (
-    <div data-testid="widget-retro-terminal" data-props={JSON.stringify(Object.keys(props))} />
+  default: ({ onTriggerGlitch }: { onTriggerGlitch: () => void }) => (
+    <div data-testid="widget-retro-terminal" data-trigger-glitch={String(!!onTriggerGlitch)} />
   ),
 }));
 
