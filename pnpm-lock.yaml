@@ -105,6 +105,9 @@ importers:
       eslint-config-next:
         specifier: ^16.2.6
         version: 16.2.7(@typescript-eslint/parser@8.61.0(eslint@9.39.4(jiti@2.7.0))(typescript@5.8.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.8.3)
+      jscpd:
+        specifier: ^5.0.6
+        version: 5.0.6
       jsdom:
         specifier: ^29.1.1
         version: 29.1.1
@@ -114,9 +117,6 @@ importers:
       tailwindcss:
         specifier: ^4.1.14
         version: 4.3.0
-      turbo:
-        specifier: ^2.9.16
-        version: 2.9.16
       typescript:
         specifier: ~5.8.2
         version: 5.8.3
@@ -1876,36 +1876,6 @@ packages:
   '@ts-morph/common@0.11.1':
     resolution: {integrity: sha512-7hWZS0NRpEsNV8vWJzg7FEz6V8MaLNeJOmwmghqUXTpzk16V1LLZhdo+4QvE/+zv4cVci0OviuJFnqhEfoV3+g==}
 
-  '@turbo/darwin-64@2.9.16':
-    resolution: {integrity: sha512-jLjApWTSNd7JZ5JaLYfelW1ytnGQOvB7ivl+2RD1xQvJTbi8I9gBjzcga7tDZVPyaxpl10YTfJt3BrYXR18KDw==}
-    cpu: [x64]
-    os: [darwin]
-
-  '@turbo/darwin-arm64@2.9.16':
-    resolution: {integrity: sha512-YPgrn+5HIGzrx0O2a631SV4MBQUe4W/DafMFUuBVgaU32PW9/OTT0ehviF0QSxTXuRJlHvW2eUTemddF5/spmw==}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@turbo/linux-64@2.9.16':
-    resolution: {integrity: sha512-vAEf1H6l26lTpl9FJ/peQo1NUB8RC0sbEJJz5mPcUhHA2bPDup2x3CZPgo/bH8S4cUcBLm4FN3UHd5iUO2RAew==}
-    cpu: [x64]
-    os: [linux]
-
-  '@turbo/linux-arm64@2.9.16':
-    resolution: {integrity: sha512-xDBLR2PZg4BrQOchfG6svgpv5FCNJ2TOtT2psLdEJcdKo1BH+pnPs9Xj6pvUjgfkHbuvBOfeE4R6tvxMoQKDHQ==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@turbo/windows-64@2.9.16':
-    resolution: {integrity: sha512-NBAJnaUiGdgkSzQwUIdOvkCkcpTSu58G/sBGa0mvBtzfvFOOgrQwepKOOQ8cp6sWM6OcKDNFj2p1dsZA1OWjPg==}
-    cpu: [x64]
-    os: [win32]
-
-  '@turbo/windows-arm64@2.9.16':
-    resolution: {integrity: sha512-Y7SJppD0Z8wjO3Ec0ZGd9KQ4Yv0BMnA8CIowj5Vp+OEVsosXDG2weK6/t1RRLfJmc2Ozrnd6y4DOgQys+mn3WQ==}
-    cpu: [arm64]
-    os: [win32]
-
   '@tybys/wasm-util@0.10.2':
     resolution: {integrity: sha512-RoBvJ2X0wuKlWFIjrwffGw1IqZHKQqzIchKaadZZfnNpsAYp2mM0h36JtPCjNDAHGgYez/15uMBpfGwchhiMgg==}
 
@@ -2525,6 +2495,39 @@ packages:
 
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
+
+  cpd-darwin-arm64@5.0.6:
+    resolution: {integrity: sha512-S4bSBpAAgUFPikTYOEDgPLC4+p6k09n9pWKs7BHKGaCX+n1A/fx3lenn1MsTag9LPMBei9rHmSE8PJsRmmL7Og==}
+    cpu: [arm64]
+    os: [darwin]
+
+  cpd-darwin-x64@5.0.6:
+    resolution: {integrity: sha512-4hhEfshjBCPzaH6Ne9qtdaXrntgxLko+dkj80JMCKhUUsTM+UbG5HfD9bpTxRrG4+xD+4z+/8xh0z4QjwBrdsw==}
+    cpu: [x64]
+    os: [darwin]
+
+  cpd-linux-arm64-gnu@5.0.6:
+    resolution: {integrity: sha512-6n2qUOx4p/gUHv3UugRR2hsHPrkmFlyBhrjXekdden8K5lTP1Um/+iaL+fSY20QaXFMHdYAOvuLRdMYftP9ukQ==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  cpd-linux-x64-gnu@5.0.6:
+    resolution: {integrity: sha512-5ZRb9/H6L0z2metS1zQWwgwi+nSMixe8p/11w5YYZRBDXWSWDMutWs01L/FihwyTkZKVjCovwyjim1k98fT0Mg==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  cpd-linux-x64-musl@5.0.6:
+    resolution: {integrity: sha512-0vOZ1M8U55QJJCjqY1gborA9b8Lrcv6k/tD1vs8kTlNt+jInpgmAwXBYnBEQoqDiW/RTwwaZIASDWJ7Y20oYsg==}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  cpd-windows-x64-msvc@5.0.6:
+    resolution: {integrity: sha512-zJxu7SAuuCrV6FpyGdveOXqJ+AsxcnmOCm1RPuurYD1X+FcaKTJZFhc1XtT6k3hSx2muqymIG6+ilUWJ7rwCnA==}
+    cpu: [x64]
+    os: [win32]
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -3426,6 +3429,11 @@ packages:
 
   js-yaml@4.2.0:
     resolution: {integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==}
+    hasBin: true
+
+  jscpd@5.0.6:
+    resolution: {integrity: sha512-EEZFZNTcALuchsM2FwQ13e9w5EAMvgLgl1U8gRXPEATUmN9Bvqs1tnfWD/y/dIba/3Lc/ILMev/amxql90ztYA==}
+    engines: {node: '>=18'}
     hasBin: true
 
   jsdom@29.1.1:
@@ -4385,10 +4393,6 @@ packages:
   tsx@4.22.4:
     resolution: {integrity: sha512-X8EX+XV4QR5xCsrgxaED954zTDfY8KqlDtskKEL0cHhyS/P8b4IFOvGDQpsC9Q1XnLq915wEfwwY/zzskCtmhg==}
     engines: {node: '>=18.0.0'}
-    hasBin: true
-
-  turbo@2.9.16:
-    resolution: {integrity: sha512-NqgRQy6j6dPYcdSdv0q1g9QsZg7SWg87RERM8otw/1AtKU2yTFVClOM7cbwKzOonZr/Ek1blTBucw64L9H0Bwg==}
     hasBin: true
 
   type-check@0.4.0:
@@ -5956,24 +5960,6 @@ snapshots:
       mkdirp: 1.0.4
       path-browserify: 1.0.1
 
-  '@turbo/darwin-64@2.9.16':
-    optional: true
-
-  '@turbo/darwin-arm64@2.9.16':
-    optional: true
-
-  '@turbo/linux-64@2.9.16':
-    optional: true
-
-  '@turbo/linux-arm64@2.9.16':
-    optional: true
-
-  '@turbo/windows-64@2.9.16':
-    optional: true
-
-  '@turbo/windows-arm64@2.9.16':
-    optional: true
-
   '@tybys/wasm-util@0.10.2':
     dependencies:
       tslib: 2.8.1
@@ -6669,6 +6655,24 @@ snapshots:
   convert-hrtime@3.0.0: {}
 
   convert-source-map@2.0.0: {}
+
+  cpd-darwin-arm64@5.0.6:
+    optional: true
+
+  cpd-darwin-x64@5.0.6:
+    optional: true
+
+  cpd-linux-arm64-gnu@5.0.6:
+    optional: true
+
+  cpd-linux-x64-gnu@5.0.6:
+    optional: true
+
+  cpd-linux-x64-musl@5.0.6:
+    optional: true
+
+  cpd-windows-x64-msvc@5.0.6:
+    optional: true
 
   cross-spawn@7.0.6:
     dependencies:
@@ -7737,6 +7741,15 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
+  jscpd@5.0.6:
+    optionalDependencies:
+      cpd-darwin-arm64: 5.0.6
+      cpd-darwin-x64: 5.0.6
+      cpd-linux-arm64-gnu: 5.0.6
+      cpd-linux-x64-gnu: 5.0.6
+      cpd-linux-x64-musl: 5.0.6
+      cpd-windows-x64-msvc: 5.0.6
+
   jsdom@29.1.1:
     dependencies:
       '@asamuzakjp/css-color': 5.1.11
@@ -8727,15 +8740,6 @@ snapshots:
       esbuild: 0.28.0
     optionalDependencies:
       fsevents: 2.3.3
-
-  turbo@2.9.16:
-    optionalDependencies:
-      '@turbo/darwin-64': 2.9.16
-      '@turbo/darwin-arm64': 2.9.16
-      '@turbo/linux-64': 2.9.16
-      '@turbo/linux-arm64': 2.9.16
-      '@turbo/windows-64': 2.9.16
-      '@turbo/windows-arm64': 2.9.16
 
   type-check@0.4.0:
     dependencies:

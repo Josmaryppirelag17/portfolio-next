@@ -16,7 +16,8 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "preflight": "pnpm typecheck && pnpm lint && pnpm test",
-    "sonar": "sonar-scanner"
+    "sonar": "sonar-scanner",
+    "duplication": "jscpd --min-tokens 50 --min-lines 5 --threshold 3 src/"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
@@ -53,10 +54,10 @@
     "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.6",
+    "jscpd": "^5.0.6",
     "jsdom": "^29.1.1",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.1.14",
-    "turbo": "^2.9.16",
     "typescript": "~5.8.2",
     "vitest": "^4.1.7"
   },
