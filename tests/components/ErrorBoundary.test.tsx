@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import PortfolioErrorBoundary from "@/components/molecules/ErrorBoundary";
 
-vi.mock("@sentry/react", () => ({ captureException: vi.fn() }));
+vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
 
 describe("PortfolioErrorBoundary", () => {
   it("renders children when no error", () => {

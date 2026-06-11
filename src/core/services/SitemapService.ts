@@ -1,10 +1,8 @@
+import { escapeXml } from "@/utils/escape";
+
 export const runtime = "edge";
 
 const SITE_URL = "https://josmarypirela.dev";
-
-function escapeXml(s: string): string {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
 
 function url(loc: string, priority: string, lastmod: string, alternates: { hreflang: string; href: string }[]) {
   return `  <url>
@@ -16,7 +14,7 @@ ${alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}
   </url>`;
 }
 
-export default async function handler() {
+export async function generateSitemapResponse(): Promise<Response> {
   try {
     const today = new Date().toISOString().slice(0, 10);
 

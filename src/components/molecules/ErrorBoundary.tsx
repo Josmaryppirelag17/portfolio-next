@@ -1,7 +1,7 @@
 "use client";
 
 import { Component, type ErrorInfo, type ReactNode } from "react";
-import * as Sentry from "@sentry/react";
+import * as Sentry from "@sentry/nextjs";
 
 interface ErrorBoundaryProps {
   children: ReactNode;

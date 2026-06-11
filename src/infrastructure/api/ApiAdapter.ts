@@ -22,18 +22,27 @@ export class ApiAdapter {
     try {
       const url = new URL(path, this.baseURL);
       if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
-      const res = await fetch(url.toString(), { headers: this.defaultHeaders() });
-      if (!res.ok) return err(this.handleError(res));
-      return ok(await res.json() as T);
-    } catch (e) { return err(new InternalError("Error en API: " + (e instanceof Error ? e.message : String(e)))); }
+      return await this.fetchJson<T>(url.toString());
+    } catch (e) { return this.wrapError(e); }
   }
 
   async post<T>(path: string, body: unknown): AsyncResult<T, AppError> {
     try {
-      const res = await fetch(new URL(path, this.baseURL).toString(), { method: "POST", headers: this.defaultHeaders(), body: JSON.stringify(body) });
-      if (!res.ok) return err(this.handleError(res));
-      return ok(await res.json() as T);
-    } catch (e) { return err(new InternalError("Error en API: " + (e instanceof Error ? e.message : String(e)))); }
+      return await this.fetchJson<T>(new URL(path, this.baseURL).toString(), {
+        method: "POST",
+        body: JSON.stringify(body),
+      });
+    } catch (e) { return this.wrapError(e); }
+  }
+
+  private async fetchJson<T>(url: string, init?: RequestInit): AsyncResult<T, AppError> {
+    const res = await fetch(url, { headers: this.defaultHeaders(), ...init });
+    if (!res.ok) return err(this.handleError(res));
+    return ok(await res.json() as T);
+  }
+
+  private wrapError(e: unknown) {
+    return err(new InternalError("Error en API: " + (e instanceof Error ? e.message : String(e))));
   }
 
   private defaultHeaders(): Record<string, string> { return { "Content-Type": "application/json", "Accept": "application/json" }; }

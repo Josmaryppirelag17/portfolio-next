@@ -4,6 +4,7 @@ import { getDb } from "@/lib/db/connection";
 import { messages, rateLimits } from "@/lib/db/schema";
 import { lt } from "drizzle-orm";
 import { getErrorMessage } from "@/utils/errors";
+import { escapeHtml } from "@/utils/escape";
 
 const ALLOWED_ORIGINS = [
   "https://josmarypirela.dev",
@@ -14,16 +15,6 @@ export function isOriginAllowed(origin: string | null): boolean {
   if (!origin) return false;
   if (ALLOWED_ORIGINS.includes(origin)) return true;
   return /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
-}
-
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#x27;")
-    .replace(/\//g, "&#x2F;");
 }
 
 export interface ContactFormData {
