@@ -409,6 +409,8 @@ export default function HeroPlayground({
       className="relative overflow-hidden w-full bg-brand-bg select-none py-12 md:py-20 lg:py-24 border-b-4 border-brand-bg cyber-grid"
       ref={containerRef}
       onMouseMove={handleMouseMove}
+      role="region"
+      aria-label="Interactive hero section with 3D playground"
     >
       {/* Decorative Cyber vertical indicators */}
       <div
@@ -567,9 +569,10 @@ export default function HeroPlayground({
 
           {/* Primary Render Viewer for 3D Geometry */}
           <div
-            role="region"
-            aria-label="Visor 3D interactivo"
-            className="flex-grow flex items-center justify-center relative my-4 cursor-grab active:cursor-grabbing select-none"
+            role="application"
+            aria-label="Interactive 3D shape viewer"
+            tabIndex={0}
+            className="flex-grow flex items-center justify-center relative my-4 cursor-grab active:cursor-grabbing select-none outline-none"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUpOrLeave}

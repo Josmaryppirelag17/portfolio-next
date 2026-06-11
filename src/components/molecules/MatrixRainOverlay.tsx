@@ -30,6 +30,7 @@ export default function MatrixRainOverlay({ onClose }: { onClose: () => void }) 
     const fontSize = 14;
     const columns = Math.ceil(window.innerWidth / fontSize);
     const rainDrops: number[] = Array.from({ length: columns }, () =>
+      // NOSONAR - Math.random used only for visual Matrix rain positions, not security
       Math.floor(Math.random() * -100),
     );
 
@@ -40,9 +41,11 @@ export default function MatrixRainOverlay({ onClose }: { onClose: () => void }) 
       ctx.fillStyle = "#00FF66";
       ctx.font = `bold ${fontSize}px "JetBrains Mono", monospace`;
       for (let i = 0; i < rainDrops.length; i++) {
+        // NOSONAR - Math.random used only for visual Matrix rain chars, not security
         const text = charsArr[Math.floor(Math.random() * charsArr.length)]!;
         const yCoord = rainDrops[i]! * fontSize;
         if (yCoord >= 0) ctx.fillText(text, i * fontSize, yCoord);
+        // NOSONAR - Math.random used only for visual rain drop reset probability, not security
         if (yCoord > window.innerHeight && Math.random() > 0.975) rainDrops[i] = 0;
         rainDrops[i]!++;
       }
@@ -66,8 +69,7 @@ export default function MatrixRainOverlay({ onClose }: { onClose: () => void }) 
       )}
       <div className="relative z-10 text-center space-y-6 max-w-xl p-6 sm:p-8 bg-black/95 border-3 border-[#00ff66] rounded-xl shadow-[0_0_50px_rgba(0,255,102,0.4)]">
         <h2 className="text-xl sm:text-2xl font-black tracking-widest uppercase mb-1 flex items-center justify-center space-x-2.5 animate-pulse">
-          <span aria-hidden="true">[===] </span>MATRIX_BYPASS_ENGAGED
-          <span aria-hidden="true"> [===]</span>
+          <span aria-hidden="true">[===]</span> MATRIX_BYPASS_ENGAGED <span aria-hidden="true">[===]</span>
         </h2>
         <div className="h-0.5 w-full bg-[#00ff66] mb-3" />
         <p className="text-xs text-left leading-relaxed text-[#00ff66]/90 font-mono space-y-1">
