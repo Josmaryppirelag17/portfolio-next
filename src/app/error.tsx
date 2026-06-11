@@ -1,6 +1,8 @@
 "use client";
 
-export default function Error({ reset }: { error: Error; reset: () => void }) {
+export default function Error( // NOSONAR - Next.js requires "Error" as component name
+  { reset }: { error: Error; reset: () => void }
+) {
   return (
     <div role="alert" className="flex min-h-screen flex-col items-center justify-center gap-4 bg-[#111232] px-6">
       <h2 className="font-mono text-lg text-brand-pink">SYSTEM ERROR</h2>
