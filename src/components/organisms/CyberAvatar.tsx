@@ -1,7 +1,38 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, type MotionValue, useMotionValue, useSpring, useTransform } from "motion/react";
+
+function EyeBall({ blink, eyeX, eyeY }: { blink: boolean; eyeX: MotionValue<number>; eyeY: MotionValue<number> }) {
+  return (
+    <div
+      className="w-10 h-10 bg-[#fafafc] border-4 border-[#090a12] rounded-full relative overflow-hidden flex items-center justify-center"
+      style={{
+        borderRadius: "50% 50% 45% 45% / 52% 52% 48% 48%",
+        boxShadow: "inset 0px 3px 5px rgba(0,0,0,0.25)",
+      }}
+    >
+      <motion.div
+        className="w-6 h-6 bg-[#16171b] rounded-full relative flex items-center justify-center border border-zinc-950"
+        style={{
+          x: eyeX,
+          y: eyeY,
+        }}
+      >
+        <div className="w-4.5 h-4.5 bg-[#251f1c] rounded-full opacity-65 absolute" />
+        <div className="absolute top-0.5 right-0.5 w-2 h-2 bg-white rounded-full" />
+        <div className="absolute bottom-1 left-1.5 w-1 h-1 bg-white rounded-full opacity-70" />
+      </motion.div>
+      <motion.div
+        className="absolute inset-x-0 top-0 bg-[#947761] border-b-4 border-[#090a12]"
+        animate={{
+          height: blink ? "100%" : "0%",
+        }}
+        transition={{ duration: 0.12 }}
+      />
+    </div>
+  );
+}
 
 export default function CyberAvatar() {
   const [blink, setBlink] = useState(false);
@@ -332,71 +363,8 @@ export default function CyberAvatar() {
               {/* DARK EXPRESSIVE EYES (Pupila tracking cursor)       */}
               {/* ==================================================== */}
               <div className="absolute top-[32%] w-full px-5 flex justify-between z-10">
-                {/* LEFT EYE */}
-                <div
-                  className="w-10 h-10 bg-[#fafafc] border-4 border-[#090a12] rounded-full relative overflow-hidden flex items-center justify-center"
-                  style={{
-                    borderRadius: "50% 50% 45% 45% / 52% 52% 48% 48%",
-                    boxShadow: "inset 0px 3px 5px rgba(0,0,0,0.25)",
-                  }}
-                >
-                  {/* Dynamic Dark Pupil / Glistening Iris */}
-                  <motion.div
-                    className="w-6 h-6 bg-[#16171b] rounded-full relative flex items-center justify-center border border-zinc-950"
-                    style={{
-                      x: eyeX,
-                      y: eyeY,
-                    }}
-                  >
-                    {/* Dark brown interior gloss layer */}
-                    <div className="w-4.5 h-4.5 bg-[#251f1c] rounded-full opacity-65 absolute" />
-
-                    {/* Glassy speculums / reflections */}
-                    <div className="absolute top-0.5 right-0.5 w-2 h-2 bg-white rounded-full" />
-                    <div className="absolute bottom-1 left-1.5 w-1 h-1 bg-white rounded-full opacity-70" />
-                  </motion.div>
-
-                  {/* Standard rapid blink animation cover panel */}
-                  <motion.div
-                    className="absolute inset-x-0 top-0 bg-[#947761] border-b-4 border-[#090a12]"
-                    animate={{
-                      height: blink ? "100%" : "0%",
-                    }}
-                    transition={{ duration: 0.12 }}
-                  />
-                </div>
-
-                {/* RIGHT EYE */}
-                <div
-                  className="w-10 h-10 bg-[#fafafc] border-4 border-[#090a12] rounded-full relative overflow-hidden flex items-center justify-center"
-                  style={{
-                    borderRadius: "50% 50% 45% 45% / 52% 52% 48% 48%",
-                    boxShadow: "inset 0px 3px 5px rgba(0,0,0,0.25)",
-                  }}
-                >
-                  {/* Dynamic Dark Pupil */}
-                  <motion.div
-                    className="w-6 h-6 bg-[#16171b] rounded-full relative flex items-center justify-center border border-zinc-950"
-                    style={{
-                      x: eyeX,
-                      y: eyeY,
-                    }}
-                  >
-                    <div className="w-4.5 h-4.5 bg-[#251f1c] rounded-full opacity-65 absolute" />
-
-                    <div className="absolute top-0.5 right-0.5 w-2 h-2 bg-white rounded-full" />
-                    <div className="absolute bottom-1 left-1.5 w-1 h-1 bg-white rounded-full opacity-70" />
-                  </motion.div>
-
-                  {/* Standard blink cover panel */}
-                  <motion.div
-                    className="absolute inset-x-0 top-0 bg-[#947761] border-b-4 border-[#090a12]"
-                    animate={{
-                      height: blink ? "100%" : "0%",
-                    }}
-                    transition={{ duration: 0.12 }}
-                  />
-                </div>
+                <EyeBall blink={blink} eyeX={eyeX} eyeY={eyeY} />
+                <EyeBall blink={blink} eyeX={eyeX} eyeY={eyeY} />
               </div>
 
               {/* Eye Brows */}

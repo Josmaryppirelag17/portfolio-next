@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 
 export function useCanvas(
   setup: (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => (() => void) | void,
@@ -34,6 +34,16 @@ export function useCanvas(
   }, [start]);
 
   return canvasRef;
+}
+
+export function getCanvasSafe(
+  ref: React.RefObject<HTMLCanvasElement | null>,
+  reducedMotion: boolean,
+): CanvasRenderingContext2D | null {
+  if (reducedMotion) return null;
+  const canvas = ref.current;
+  if (!canvas) return null;
+  return canvas.getContext("2d");
 }
 
 export function setupCanvas(canvas: HTMLCanvasElement, width: number, height: number) {

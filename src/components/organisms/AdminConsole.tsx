@@ -23,6 +23,7 @@ import {
   hasUserCyberMessages,
   loadCyberMessages,
 } from "@utils/cyberMessages";
+import { trapTabFocus } from "@utils/focusTrap";
 
 interface AdminConsoleProps {
   isOpen: boolean;
@@ -109,17 +110,7 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
         if (e.key === "2") { setActiveTab("DB_MESSAGES"); refreshMessages(); }
       }
       if (e.key === "Tab") {
-        const focusable = consoleRef.current?.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (!focusable || focusable.length === 0) return;
-        const first = focusable[0]!;
-        const last = focusable[focusable.length - 1]!;
-        if (e.shiftKey) {
-          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-        } else {
-          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-        }
+        trapTabFocus(e, consoleRef);
       }
     };
     window.addEventListener("keydown", onKeyDown);

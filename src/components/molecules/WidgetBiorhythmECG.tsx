@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Activity, Heart } from "lucide-react";
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { getCanvasSafe } from "@/hooks/useCanvas";
 
 export default function WidgetBiorhythmECG() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -11,12 +12,9 @@ export default function WidgetBiorhythmECG() {
   const [cortisol, setCortisol] = useState(32);
 
   useEffect(() => {
-    if (reducedMotion) return;
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = getCanvasSafe(canvasRef, reducedMotion);
     if (!ctx) return;
-
+    const canvas = ctx.canvas;
     let width = canvas.width = 170;
     let height = canvas.height = 100;
     let x = 0;

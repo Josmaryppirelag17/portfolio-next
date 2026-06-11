@@ -5,6 +5,7 @@ import {
   Volume2, VolumeX, Shield, Menu, X,
 } from "lucide-react";
 import { soundEngine } from "@/components/organisms/SoundEngine";
+import { trapTabFocus } from "@utils/focusTrap";
 import type { Language } from "@/types";
 
 interface SiteHeaderProps {
@@ -35,17 +36,7 @@ export default function SiteHeader({
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") { onMobileClose(); return; }
       if (e.key === "Tab") {
-        const focusable = menuRef.current?.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (!focusable || focusable.length === 0) return;
-        const first = focusable[0]!;
-        const last = focusable[focusable.length - 1]!;
-        if (e.shiftKey) {
-          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-        } else {
-          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-        }
+        trapTabFocus(e, menuRef);
       }
     };
     document.addEventListener("keydown", handleKeyDown);

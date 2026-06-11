@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { Code } from "lucide-react";
 import { soundEngine } from "@/components/organisms/SoundEngine";
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { getCanvasSafe } from "@/hooks/useCanvas";
 
 export default function WidgetMatrixRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -13,12 +14,9 @@ export default function WidgetMatrixRain() {
   const [density, setDensity] = useState(0.65);
 
   useEffect(() => {
-    if (reducedMotion) return;
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = getCanvasSafe(canvasRef, reducedMotion);
     if (!ctx) return;
-
+    const canvas = ctx.canvas;
     let width = canvas.width = 170;
     let height = canvas.height = 140;
     const charList = "アカサタナハマヤラワガザダバパイウエオ0123456789%X_#@$◇◆";
