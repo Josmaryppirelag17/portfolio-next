@@ -1,5 +1,4 @@
 import type { TranslationDictionary, LocalizedProject, LocalizedMilestone } from './types';
-
 export const translations: TranslationDictionary = {
   nav_about: "//_SOBRE MÍ",
   nav_journey: "//_TRAYECTORIA",
@@ -21,7 +20,7 @@ export const translations: TranslationDictionary = {
   audio_tooltip: "Haz clic para activar señales de audio sintetizadas pop",
   hero_title_accent: "ESTILO POP ART!",
   hero_lead_paragraph:
-    "Software Developer que abarca el ciclo completo: desde el concepto inicial y la arquitectura del sistema hasta el desarrollo, testing, hardening de seguridad, CI/CD, observabilidad y optimización de rendimiento. Construyo aplicaciones completas con Next.js, React, TypeScript, PostgreSQL (Drizzle ORM), Canvas API, Web Audio API y Framer Motion — integrando IA (Groq), asegurando con CSP nonce-based y bcrypt, monitoreando con Sentry, y desplegando con pipelines automatizados de GitHub Actions. Cada proyecto es tipado, testeado (Vitest + Playwright), accesible y optimizado para PageSpeed 100/100.",
+    "Software Engineer que resuelve problemas con código y arte. Construyo aplicaciones web completas de extremo a extremo: desde la arquitectura y el backend hasta interfaces interactivas y observabilidad en producción. Full-stack con Next.js, React, TypeScript, PostgreSQL, AI integration (Groq), seguridad nonce-based, CI/CD automatizado y testing exhaustivo. Cada proyecto es tipado, testeado, accesible y optimizado — porque los detalles importan.",
   btn_explore_exhibitions: "EXPLORAR EXHIBICIONES",
   btn_trigger_sparks: "ACTIVAR DESTELLOS CYBER POP",
   pop_synth_note: "[SPARK] ¡NOTA SINTETIZADA LIBERADA!",
@@ -37,11 +36,17 @@ export const translations: TranslationDictionary = {
   tab_bio: "// BIO",
   tab_philosophy: "// FILOSOFÍA",
   tab_vibes: "// VIBRAS",
-  philosophy_title: "Dominio Estético Interactivo",
+  philosophy_title: "La Pregunta que Cambió Todo",
   philosophy_p1:
-    "El código es el esqueleto; la creatividad es el sistema nervioso. Arquitecto, construyo, pruebo, aseguro y entrego sistemas de software completos — desde el primer wireframe hasta la última métrica de observabilidad. Cada proyecto es una entrega de ciclo completo: concebido, estructurado, codificado, endurecido contra amenazas, validado con tests, monitoreado en producción y mejorado continuamente. No solo escribo código; construyo soluciones duraderas, performantes y de extremo a extremo.",
+    "Empecé en interfaces. Aprendí a construir cosas bonitas, responsivas, fluidas. Pero un día me pregunté: ¿y qué más?\n\nNo era suficiente que se viera bien si no sabía por qué fallaba. No era suficiente que funcionara si no sabía cómo asegurarlo. No era suficiente que fuera rápido si no podía medirlo, observarlo, mejorarlo.\n\nEsa pregunta — ¿y qué más? — me llevó a aprender todo lo que está detrás. Arquitectura. Backend. Testing. Seguridad. DevOps. Observabilidad. No para ser la mejor. Para hacer las cosas mejor.\n\nHoy soy una solucionadora de problemas que aprendió ingeniería. Una artista que escribe código. Construyo sistemas completos porque creo que si algo vale la pena hacer, vale la pena hacerlo bien — desde la idea hasta la última métrica en producción.",
+  philosophy_p2_title: "Sobre las Condiciones",
+  philosophy_p2:
+    "Soy de Venezuela. Trabajo en una máquina de 2013 en Arch Linux. Mi internet no es estable. Mi presupuesto es limitado.\n\nEso no es una limitación. Es un criterio. Me obliga a optimizar. A entender costos. A crear herramientas que funcionen sin depender de recursos infinitos. Eso no me frena — me entrena.",
+  philosophy_p3_title: "Margaret Hamilton, Ada Lovelace, Hedy Lamar",
+  philosophy_p3:
+    "En 2023, cuando empecé, me dijeron que esto no era para mí. Que las mujeres en tech eran excepciones, no la norma. Que mi género era una limitación, no una perspectiva.\n\nEllas probaron lo contrario. Hace décadas.\n\nMargareta Hamilton escribió el código que llevó humanos a la Luna. Ada Lovelace inventó el algoritmo antes que existieran computadoras. Hedy Lamar patentó una tecnología que hoy es WiFi.\n\nNo las menciono porque sean perfectas. Las menciono porque resolvieron problemas que otros decían que eran imposibles, con lo que tenían, sin permiso de nadie. Eso soy yo.",
   philosophy_quote:
-    "Construir con rigor, diseñar con propósito, entregar herramientas que perduren.",
+    "No veo límites, veo adaptaciones. No veo problemas, veo soluciones sin descubrir.",
   vibes_stationary_title: "PREFERENCIAS",
   vibes_stationary:
     "Terminal abierta, Libros de todo tipo, mis perros cerca, Café como combustible",
@@ -148,7 +153,6 @@ export const translations: TranslationDictionary = {
   warning_alarm_venting:
     "SISTEMA EN VENTILACIÓN COMPILADORA: COOLANT REDISTRIBUYENDO EQUILIBRIO TÉRMICO.",
 };
-
 export const projects: LocalizedProject[] = [
   {
     id: "E-Vil-Ai-Assistant",
@@ -223,7 +227,6 @@ export const projects: LocalizedProject[] = [
     ],
   },
 ];
-
 export const milestones: LocalizedMilestone[] = [
   {
     id: "exp-1",
@@ -231,7 +234,7 @@ export const milestones: LocalizedMilestone[] = [
     role: "Software Engineer",
     company: "Proyectos Independientes",
     description:
-      "Diseño y desarrollo aplicaciones web modernas de extremo a extremo, integrando arquitectura, seguridad, observabilidad y experiencias interactivas.",
+      "Dueña del ciclo de vida completo del software: desde la idea hasta la última métrica en producción. Diseño, desarrollo, testing, seguridad, DevOps y observabilidad integrados.",
     bullets: [
       "Dueña del ciclo de vida completo del software: concebir, arquitecturar, construir, testear, asegurar, desplegar, monitorear e iterar — desde la idea del producto hasta las métricas de PageSpeed.",
       "Construyo aplicaciones full-stack con Next.js, React 19, TypeScript, PostgreSQL, Drizzle ORM, Tailwind CSS 4 y Framer Motion.",
@@ -241,6 +244,7 @@ export const milestones: LocalizedMilestone[] = [
       "Endurezco aplicaciones con CSP nonce-based (Mozilla Observatory A+), HSTS, X-Frame-Options, Permissions-Policy y validación Zod en cada endpoint.",
       "Integro observabilidad con Sentry (client/server/edge), logging estructurado por contexto y auditoría de eventos de seguridad.",
       "Automatizo todo con GitHub Actions: typecheck, lint, tests unitarios, tests E2E, build, deploy a staging, deploy a producción y rollback — todo en pipelines CI/CD.",
+      "Creo herramientas de automatización personalizadas: CLI scripts para scaffold, generación de componentes, checklists de calidad integrada y optimización de tokens en prompts de IA.",
     ],
     tags: [
       "Next.js",
@@ -257,18 +261,29 @@ export const milestones: LocalizedMilestone[] = [
   },
   {
     id: "exp-2",
-    period: "2022 - 2025",
-    role: "Desarrolladora Frontend",
-    company: "Aprendizaje Autónomo y Desarrollo Independiente",
+    period: "2023 - 2025",
+    role: "Aprendizaje Autodidacta & Product Thinking",
+    company: "Construyendo desde Cero",
     description:
-      "Etapa de aprendizaje autodidacta construyendo proyectos reales desde cero — estableciendo bases sólidas en ingeniería de software, diseño de sistemas y desarrollo de producto integral.",
+      "Etapa de transformación: pasé de frontend-only a full-stack engineer mediante proyectos reales, cuestionamiento constante y purga de bajo desempeño.",
     bullets: [
-      "Construí aplicaciones web completas desde el concepto hasta el despliegue usando JavaScript, TypeScript, React y Next.js.",
-      "Desarrollé sistemas completos: dashboards de gestión, landing pages, experiencias interactivas y proyectos experimentales.",
-      "Implementé control de versiones con Git, fundamentos de CI/CD y documentación técnica para mantenibilidad.",
-      "Exploré y apliqué accesibilidad (ARIA, teclado, reduced motion), diseño responsive, principios de UX y optimización de rendimiento frontend.",
-      "Asumí el ciclo completo de desarrollo: idea, arquitectura, implementación, pruebas, despliegue y retrospectiva.",
+      "Empecé preguntándome ¿y qué más? cuando solo sabía frontend. Eso me llevó a aprender arquitectura, backend, testing, seguridad y DevOps — no para ser la mejor, sino para hacer las cosas mejor.",
+      "Construí 10+ proyectos en 6 meses; depuré la mayoría porque no alcanzaban mis expectativas. Los 3 que permanecen (VIL, BeeHive, Portafolio) son el resultado de esa purga de calidad.",
+      "Aprendí TypeScript strict, testing con Vitest + Playwright, CI/CD con GitHub Actions, seguridad (CSP, bcrypt, httpOnly, validación), monitoreo con Sentry.",
+      "Integré por primera vez IA (Groq API), Web Speech API, Canvas, Web Audio API — cada una requerida por los proyectos, no por tutoriales.",
+      "Trabajé en condiciones limitadas: máquina de 2013, presupuesto restringido, internet inestable. Eso me forzó a optimizar, automatizar y crear herramientas propias.",
+      "Mentalidad de producto: cada proyecto nace de un problema real, no de un tutorial. Validé con usuarios, iteré, medí métricas.",
     ],
-    tags: ["React", "JavaScript", "TypeScript", "Git", "Responsive Design", "HTML/CSS", "CI/CD"],
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Backend",
+      "Testing",
+      "Security",
+      "DevOps",
+      "Autodidacta",
+      "Problem-Solving",
+    ],
   },
 ];
