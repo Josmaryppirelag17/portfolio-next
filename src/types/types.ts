@@ -108,7 +108,7 @@ export const SKILLS_DATA: SkillItem[] = [
     color: "brand-pink",
   },
   {
-    name: "Sentry / PostHog",
+    name: "Sentry",
     category: "Tooling & DevOps",
     level: 80,
     color: "brand-lime",

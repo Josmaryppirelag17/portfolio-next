@@ -115,7 +115,7 @@ pnpm preflight   # typecheck + lint + test (CI pipeline)
 | Components | 4 (ErrorBoundary, PortfolioStructuredData, SiteFooter, SectionFallback) |
 | Hooks | 5 (useMatrixEasterEgg, useClock, useMobileMenu, usePrefersReducedMotion, useAudio) |
 | API routes | 2 (sitemap, contact) |
-| Infrastructure | 2 (StorageAdapter, ApiAdapter) |
+| Infrastructure | 1 (StorageAdapter) |
 | Lib / Schemas / DB | 3 (cyberMessages, PortfolioSchema, db-connection) |
 | E2E | 1 (home.spec) |
 | Load | 1 (contact.k6) |
@@ -236,13 +236,15 @@ Run with `pnpm turbo <task>` or directly `pnpm <task>` (PNPM runner).
 | `.env.staging` | Staging |
 
 | Variable | Description | Public |
-|---|---|---|
+|---|---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Site URL (default: `https://josmarypirela.dev`) | ✅ |
-| `NEXT_PUBLIC_SENTRY_DSN` | Sentry DSN | ✅ |
 | `DATABASE_URL` | Neon PostgreSQL connection string | ❌ |
-| `APP_URL` | Application base URL | ❌ |
+| `SENTRY_DSN` | Sentry DSN | ❌ |
 | `RESEND_API_KEY` | Resend API key for email | ❌ |
-| `CONTACT_EMAIL` | Destination email for contact form | ❌ |
+| `RESEND_FROM` | Sender email (default: `Josmary Pirela <hola@josmarypirela.dev>`) | ❌ |
+| `EMAIL_TO` | Destination email for contact form | ❌ |
+| `TELEGRAM_BOT_TOKEN` | Telegram bot token for notifications | ❌ |
+| `TELEGRAM_CHAT_ID` | Telegram chat ID for notifications | ❌ |
 
 ---
 
