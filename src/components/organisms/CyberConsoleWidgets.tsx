@@ -27,7 +27,10 @@ export default function CyberConsoleWidgets() {
   const handleCalmReactor = () => {};
 
   return (
-    <section aria-label="Cybernetics diagnostics and telemetry dock" className="w-full relative py-8 px-6 bg-[#0c0d1e]/80 border-y-4 border-brand-bg relative overflow-hidden">
+    <section
+      aria-label="Cybernetics diagnostics and telemetry dock"
+      className="w-full relative py-8 px-6 bg-[#0c0d1e]/80 border-y-4 border-brand-bg relative overflow-hidden"
+    >
       {glitchTriggered && (
         <div className="absolute inset-0 z-40 bg-brand-pink/15 backdrop-invert-[0.15] mix-blend-color-burn animate-hue-rotate pointer-events-none" />
       )}
@@ -41,7 +44,10 @@ export default function CyberConsoleWidgets() {
               <span className="h-1.5 w-1.5 rounded-full bg-brand-lime animate-ping" />
               <span>[ MODULE_SYS: SUB_SYSTEMS_OVERRIDE_ACTIVE ]</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-black font-heading text-transparent uppercase text-outline-lime tracking-tight" style={{ WebkitTextStroke: "1px #DCF10B", color: '#DBEAEC' }}>
+            <h3
+              className="text-xl sm:text-2xl font-black font-heading text-transparent uppercase text-outline-lime tracking-tight"
+              style={{ WebkitTextStroke: "1px #DCF10B", color: "#DBEAEC" }}
+            >
               CYBERNETIC DIAGNOSTICS & TELEMETRY DOCK
             </h3>
           </div>
@@ -50,7 +56,9 @@ export default function CyberConsoleWidgets() {
           </div>
         </div>
 
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative transition-transform duration-300 ${glitchTriggered ? "translate-x-1 translate-y-[-1px] filter blur-[0.3px]" : ""}`}>
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative transition-transform duration-300 ${glitchTriggered ? "translate-x-1 translate-y-[-1px] filter blur-[0.3px]" : ""}`}
+        >
           <WidgetMatrixRain />
           <WidgetPocketSynth />
           <WidgetBiorhythmECG />
@@ -70,7 +78,8 @@ export default function CyberConsoleWidgets() {
                 <Skull size={11} className="text-white" />
               </div>
               <p className="font-mono text-[10.5px] text-brand-pink font-bold uppercase tracking-widest leading-none">
-                CRITICAL WARNING: FUSION INTRUSION FLUX DETECTED! ADJUST CONSOLE ROD SLIDERS OR SCRIPT &apos;calm&apos; TO PREVENT RESET INITIATION!
+                CRITICAL WARNING: FUSION INTRUSION FLUX DETECTED! ADJUST CONSOLE ROD SLIDERS OR
+                SCRIPT &apos;calm&apos; TO PREVENT RESET INITIATION!
               </p>
             </div>
           </div>
@@ -81,7 +90,8 @@ export default function CyberConsoleWidgets() {
             <div className="flex items-center space-x-3.5">
               <span className="w-2.5 h-2.5 rounded-full bg-brand-lime animate-ping" />
               <p className="font-mono text-[10.5px] text-brand-lime font-bold uppercase tracking-widest leading-none">
-                ACTION: VENT SYSTEM IN PROGRESS. COOLANT FLOOD INTRUSION COMPRESSORS REMEDISTRIBUTING REACTOR THERMALS BACK TO Rest state.
+                ACTION: VENT SYSTEM IN PROGRESS. COOLANT FLOOD INTRUSION COMPRESSORS
+                REMEDISTRIBUTING REACTOR THERMALS BACK TO Rest state.
               </p>
             </div>
           </div>

@@ -2,10 +2,10 @@
 
 @theme {
   --color-brand-bg: #111232;
-  --color-brand-pale: #DBEAEC;
-  --color-brand-cyan: #18BEC7;
-  --color-brand-pink: #FD1EB1;
-  --color-brand-lime: #DCF10B;
+  --color-brand-pale: #dbeaec;
+  --color-brand-cyan: #18bec7;
+  --color-brand-pink: #fd1eb1;
+  --color-brand-lime: #dcf10b;
   --font-heading: "Syne", sans-serif;
   --font-display: "Bungee", sans-serif;
   --animate-scanline: scanline 6s linear infinite;
@@ -16,28 +16,53 @@
 }
 
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 @keyframes cyber-pulse {
-  0% { box-shadow: 0 0 10px rgba(253, 30, 177, 0.4), 0 0 20px rgba(253, 30, 177, 0.2); }
-  100% { box-shadow: 0 0 20px #FD1EB1, 0 0 40px rgba(253, 30, 177, 0.6); }
+  0% {
+    box-shadow:
+      0 0 10px rgba(253, 30, 177, 0.4),
+      0 0 20px rgba(253, 30, 177, 0.2);
+  }
+  100% {
+    box-shadow:
+      0 0 20px #fd1eb1,
+      0 0 40px rgba(253, 30, 177, 0.6);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(2deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
 }
 
 @keyframes grid-move {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 100%; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
 }
 
 @keyframes hue-rotate {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }
 
 .cyber-grid {
@@ -57,17 +82,17 @@
 
 .glow-spot-pink {
   filter: blur(120px);
-  background: radial-gradient(circle, #FD1EB1 0%, transparent 70%);
+  background: radial-gradient(circle, #fd1eb1 0%, transparent 70%);
 }
 
 .glow-spot-cyan {
   filter: blur(120px);
-  background: radial-gradient(circle, #18BEC7 0%, transparent 70%);
+  background: radial-gradient(circle, #18bec7 0%, transparent 70%);
 }
 
 .glow-spot-lime {
   filter: blur(120px);
-  background: radial-gradient(circle, #DCF10B 0%, transparent 70%);
+  background: radial-gradient(circle, #dcf10b 0%, transparent 70%);
 }
 
 .neo-brutal-border {
@@ -77,22 +102,26 @@
 
 .neo-brutal-border-pink {
   border: 3px solid #111232;
-  box-shadow: 6px 6px 0px #FD1EB1;
+  box-shadow: 6px 6px 0px #fd1eb1;
 }
 
 .neo-brutal-border-cyan {
   border: 3px solid #111232;
-  box-shadow: 6px 6px 0px #18BEC7;
+  box-shadow: 6px 6px 0px #18bec7;
 }
 
 .neo-brutal-border-lime {
   border: 3px solid #111232;
-  box-shadow: 6px 6px 0px #DCF10B;
+  box-shadow: 6px 6px 0px #dcf10b;
 }
 
 .crt-overlay {
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  background-size: 100% 4px, 6px 100%;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size:
+    100% 4px,
+    6px 100%;
 }
 
 @media (max-width: 640px) {
@@ -105,7 +134,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -113,7 +144,9 @@
   }
 }
 
-.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
   animation-duration: 0.01ms !important;
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
@@ -127,7 +160,7 @@
 }
 
 :focus-visible {
-  outline: 2px solid #18BEC7;
+  outline: 2px solid #18bec7;
   outline-offset: 2px;
 }
 
@@ -138,7 +171,7 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }

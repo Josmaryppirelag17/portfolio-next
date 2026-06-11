@@ -12,13 +12,20 @@ export function SectionSystemLabel({ children }: { children: React.ReactNode }) 
   );
 }
 
-export default function SectionHeader({ labelKey, heading, strokeColor = "#FD1EB1" }: SectionHeaderProps) {
+export default function SectionHeader({
+  labelKey,
+  heading,
+  strokeColor = "#FD1EB1",
+}: SectionHeaderProps) {
   return (
     <div className="flex flex-col mb-16">
       {labelKey && <SectionSystemLabel>{labelKey}</SectionSystemLabel>}
       <h2
         className="text-5xl sm:text-6xl tracking-tight uppercase italic text-transparent font-bold select-none text-left"
-        style={{ fontFamily: '"Arial Black", "Syne", sans-serif', WebkitTextStroke: `2px ${strokeColor}` }}
+        style={{
+          fontFamily: '"Arial Black", "Syne", sans-serif',
+          WebkitTextStroke: `2px ${strokeColor}`,
+        }}
       >
         {heading}
       </h2>

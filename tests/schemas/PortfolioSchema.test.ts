@@ -5,7 +5,7 @@ describe("Portfolio DB schema", () => {
   describe("messages table", () => {
     it("has correct column names", () => {
       const colNames = Object.keys(messages).filter(
-        (k) => typeof (messages as any)[k] === "object" && (messages as any)[k].table === messages
+        (k) => typeof (messages as any)[k] === "object" && (messages as any)[k].table === messages,
       );
       expect(colNames).toContain("id");
       expect(colNames).toContain("name");
@@ -54,7 +54,8 @@ describe("Portfolio DB schema", () => {
   describe("rate_limits table", () => {
     it("has correct column names", () => {
       const cols = Object.keys(rateLimits).filter(
-        (k) => typeof (rateLimits as any)[k] === "object" && (rateLimits as any)[k].table === rateLimits
+        (k) =>
+          typeof (rateLimits as any)[k] === "object" && (rateLimits as any)[k].table === rateLimits,
       );
       expect(cols).toContain("id");
       expect(cols).toContain("ip");

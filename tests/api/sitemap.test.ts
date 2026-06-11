@@ -17,9 +17,7 @@ describe("sitemap route handler", () => {
   it("returns 200 with XML content-type", async () => {
     const res = await GET();
     expect(res.status).toBe(200);
-    expect(res.headers.get("content-type")).toBe(
-      "application/xml; charset=utf-8"
-    );
+    expect(res.headers.get("content-type")).toBe("application/xml; charset=utf-8");
   });
 
   it("includes both ES and EN URLs", async () => {

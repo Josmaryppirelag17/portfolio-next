@@ -23,9 +23,7 @@ export const contactSchema = z.object({
     .trim(),
   fax: z.string().optional(),
   website: z.string().optional(),
-  formTimestamp: z
-    .number({ message: "Invalid timestamp" })
-    .positive("Timestamp must be positive"),
+  formTimestamp: z.number({ message: "Invalid timestamp" }).positive("Timestamp must be positive"),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

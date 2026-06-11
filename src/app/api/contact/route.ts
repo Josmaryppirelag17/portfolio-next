@@ -2,10 +2,20 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { isOriginAllowed, processContactForm, reportError } from "@/core/services/ContactService";
 import { checkContactRateLimit } from "@/core/services/RateLimitService";
-import { contactSchema, formatZodErrors, isFormTimestampValid } from "@/core/services/ValidationService";
+import {
+  contactSchema,
+  formatZodErrors,
+  isFormTimestampValid,
+} from "@/core/services/ValidationService";
 import { createLogger } from "@/core/services/LoggerService";
 import { getErrorMessage } from "@/utils/errors";
-import { badRequest, tooManyRequests, forbidden, serverError, ok } from "@/core/services/ErrorsService";
+import {
+  badRequest,
+  tooManyRequests,
+  forbidden,
+  serverError,
+  ok,
+} from "@/core/services/ErrorsService";
 
 export async function POST(request: NextRequest) {
   const log = createLogger(request);
@@ -28,7 +38,7 @@ export async function POST(request: NextRequest) {
 
     let body: Record<string, unknown>;
     try {
-      body = await request.json() as Record<string, unknown>;
+      body = (await request.json()) as Record<string, unknown>;
     } catch {
       log.warn("Invalid JSON body");
       return badRequest("Invalid JSON in request body");

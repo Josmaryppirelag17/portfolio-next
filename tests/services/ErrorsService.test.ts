@@ -1,7 +1,13 @@
 import { describe, it, expect } from "vitest";
 import {
-  badRequest, unauthorized, forbidden, notFound,
-  tooManyRequests, methodNotAllowed, serverError, ok,
+  badRequest,
+  unauthorized,
+  forbidden,
+  notFound,
+  tooManyRequests,
+  methodNotAllowed,
+  serverError,
+  ok,
   ErrorsService,
 } from "@/core/services/ErrorsService";
 

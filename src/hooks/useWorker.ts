@@ -4,7 +4,7 @@ type WorkerMessage = Record<string, unknown>;
 
 export function useWorker<TResult = WorkerMessage>(
   workerFactory: () => Worker,
-  options?: { autoTerminate?: boolean }
+  options?: { autoTerminate?: boolean },
 ) {
   const workerRef = useRef<Worker | null>(null);
   const [result, setResult] = useState<TResult | null>(null);

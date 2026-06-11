@@ -3,11 +3,9 @@ import type { NextRequest } from "next/server";
 
 const isDev = process.env.NODE_ENV === "development";
 
-const scriptSrc = [
-  "'strict-dynamic'",
-  "'nonce-{nonce}'",
-  ...(isDev ? ["'unsafe-eval'"] : []),
-].join(" ");
+const scriptSrc = ["'strict-dynamic'", "'nonce-{nonce}'", ...(isDev ? ["'unsafe-eval'"] : [])].join(
+  " ",
+);
 
 const CONTENT_SECURITY_POLICY = [
   `default-src 'self'`,
@@ -30,7 +28,8 @@ const SECURITY_HEADERS: Record<string, string> = {
   "X-Frame-Options": "DENY",
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "strict-origin-when-cross-origin",
-  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), display-capture=(), fullscreen=(self)",
+  "Permissions-Policy":
+    "camera=(), microphone=(), geolocation=(), payment=(), usb=(), display-capture=(), fullscreen=(self)",
   "X-Permitted-Cross-Domain-Policies": "none",
   "X-DNS-Prefetch-Control": "off",
   "Cross-Origin-Resource-Policy": "same-origin",
@@ -66,6 +65,12 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    { source: "/((?!api/|_next/|_static|_vercel|favicon|robots|sitemap|opengraph-image).*)", missing: [{ type: "header", key: "next-router-prefetch" }, { type: "header", key: "purpose", value: "prefetch" }] },
+    {
+      source: "/((?!api/|_next/|_static|_vercel|favicon|robots|sitemap|opengraph-image).*)",
+      missing: [
+        { type: "header", key: "next-router-prefetch" },
+        { type: "header", key: "purpose", value: "prefetch" },
+      ],
+    },
   ],
 };

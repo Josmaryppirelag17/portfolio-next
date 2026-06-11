@@ -59,7 +59,7 @@ export function appendCyberMessage(
     id?: string;
     timestamp?: string;
     secured?: boolean;
-  }
+  },
 ): CyberMessage {
   const record: CyberMessage = {
     id: entry.id ?? `usr_${Date.now()}`,
@@ -67,16 +67,12 @@ export function appendCyberMessage(
     email: entry.email,
     message: entry.message,
     timestamp:
-      entry.timestamp ??
-      `${new Date().toISOString().replace("T", " ").substring(0, 19)} UTC`,
+      entry.timestamp ?? `${new Date().toISOString().replace("T", " ").substring(0, 19)} UTC`,
     secured: entry.secured ?? true,
   };
 
   const existing = loadCyberMessages();
-  localStorage.setItem(
-    CYBER_MESSAGES_KEY,
-    JSON.stringify([record, ...existing])
-  );
+  localStorage.setItem(CYBER_MESSAGES_KEY, JSON.stringify([record, ...existing]));
   window.dispatchEvent(new CustomEvent(CYBER_MESSAGES_EVENT));
   return record;
 }

@@ -1,12 +1,12 @@
 "use client";
 
 import { createContext, ReactNode, useContext, useEffect, useRef, useState } from "react";
-import type { Language } from '@/types';
-import { translations as esT, projects as esP, milestones as esM } from '@/i18n/es';
-import { translations as enT, projects as enP, milestones as enM } from '@/i18n/en';
-import type { LocalizedProject, LocalizedMilestone } from '@/i18n/types';
+import type { Language } from "@/types";
+import { translations as esT, projects as esP, milestones as esM } from "@/i18n/es";
+import { translations as enT, projects as enP, milestones as enM } from "@/i18n/en";
+import type { LocalizedProject, LocalizedMilestone } from "@/i18n/types";
 
-export type { Language } from '@/types';
+export type { Language } from "@/types";
 
 function readLanguage(): Language | null {
   if (typeof window === "undefined") return null;
@@ -48,18 +48,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLanguageState(lang);
     writeLanguage(lang);
     if (announceRef.current) {
-      announceRef.current.textContent = lang === "en" ? "Language changed to English" : "Idioma cambiado a Español";
+      announceRef.current.textContent =
+        lang === "en" ? "Language changed to English" : "Idioma cambiado a Español";
     }
   };
 
   useEffect(() => {
     writeLanguage(language);
-    document.title = language === "es"
-      ? "Josmary Pirela | Desarrolladora Full-Stack Creativa"
-      : "Josmary Pirela | Creative Full-Stack Developer";
+    document.title =
+      language === "es"
+        ? "Josmary Pirela | Desarrolladora Full-Stack Creativa"
+        : "Josmary Pirela | Creative Full-Stack Developer";
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     document.documentElement.classList.toggle("reduce-motion", mq.matches);
-    const handler = (e: MediaQueryListEvent) => document.documentElement.classList.toggle("reduce-motion", e.matches);
+    const handler = (e: MediaQueryListEvent) =>
+      document.documentElement.classList.toggle("reduce-motion", e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, [language]);
@@ -72,8 +75,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const experience = language === "es" ? esM : enM;
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t, projects, experience }}>
-      <div ref={announceRef} role="status" aria-live="polite" aria-atomic="true" className="sr-only" />
+    <LanguageContext.Provider
+      value={{ language, setLanguage, toggleLanguage, t, projects, experience }}
+    >
+      <div
+        ref={announceRef}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+      />
       {children}
     </LanguageContext.Provider>
   );

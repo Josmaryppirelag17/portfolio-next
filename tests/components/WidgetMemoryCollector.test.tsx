@@ -8,7 +8,9 @@ vi.mock("@/components/organisms/SoundEngine", () => ({
 
 vi.mock("@/components/atoms/WidgetShell", () => ({
   default: ({ title, children }: { title: string; children: React.ReactNode }) => (
-    <div data-testid="widget-shell" data-title={title}>{children}</div>
+    <div data-testid="widget-shell" data-title={title}>
+      {children}
+    </div>
   ),
 }));
 
@@ -40,11 +42,15 @@ describe("WidgetMemoryCollector", () => {
 
     expect(screen.getByText("EXECUTING PURGE SYSTEM DATA")).toBeDefined();
 
-    act(() => { vi.advanceTimersByTime(1300); });
+    act(() => {
+      vi.advanceTimersByTime(1300);
+    });
     expect(screen.getByText("SCANNING CACHED CORRUPTION SECTORS...")).toBeDefined();
     expect(screen.getByText("KILLING IMPOSING residual_doubts.dll...")).toBeDefined();
 
-    act(() => { vi.advanceTimersByTime(4000); });
+    act(() => {
+      vi.advanceTimersByTime(4000);
+    });
     expect(screen.getByText("OPTIMIZATION COMPLETE: INTELLECT OVERCLOCK ACTIVE!")).toBeDefined();
     expect(screen.getByText("SCRUB COGNITIVE CACHE RAM")).toBeDefined();
   });

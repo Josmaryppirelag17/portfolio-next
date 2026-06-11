@@ -2,11 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  Filter,
-  CheckCircle,
-} from "lucide-react";
-import { SKILLS_DATA } from '@/types';
+import { Filter, CheckCircle } from "lucide-react";
+import { SKILLS_DATA } from "@/types";
 import { soundEngine } from "./SoundEngine";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -147,7 +144,12 @@ export default function InteractiveSkills() {
                   onClick={() => handleSkillClick(skill.name)}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSkillClick(skill.name); } }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      handleSkillClick(skill.name);
+                    }
+                  }}
                   aria-label={`${skill.name}: ${skill.level}%`}
                   className={`p-5 rounded-lg border-2 bg-brand-bg/85 relative transition-all duration-300 group cursor-pointer select-none ${
                     isBoosted
@@ -155,16 +157,15 @@ export default function InteractiveSkills() {
                       : "border-brand-pale/10 hover:border-brand-cyan/20"
                   }`}
                   style={{
-                    boxShadow: isBoosted
-                      ? undefined
-                      : `0 0 10px rgba(17, 18, 50, 0.4)`,
+                    boxShadow: isBoosted ? undefined : `0 0 10px rgba(17, 18, 50, 0.4)`,
                   }}
                   onMouseEnter={() => soundEngine.playHover()}
                 >
                   {/* Skill level tags at top right */}
                   <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-[9px] tracking-widest text-[#DBEAEC] uppercase opacity-55">
-                        {"// "}{skill.category}
+                    <span className="font-mono text-[9px] tracking-widest text-[#DBEAEC] uppercase opacity-55">
+                      {"// "}
+                      {skill.category}
                     </span>
                     <span
                       className={`font-mono text-[10.5px] font-bold px-2 py-0.5 rounded ${clrs.bg} ${clrs.text}`}
@@ -191,9 +192,7 @@ export default function InteractiveSkills() {
 
                   {/* Interactive details */}
                   <div className="flex items-center justify-between mt-3 text-[9px] font-mono">
-                    <span className="text-brand-pale/50 uppercase">
-                      STATUS: ACTIVE_DEP
-                    </span>
+                    <span className="text-brand-pale/50 uppercase">STATUS: ACTIVE_DEP</span>
                     <span className="text-brand-cyan underline opacity-0 group-hover:opacity-100 transition-opacity">
                       {isBoosted ? t("skill_levelled") : t("skill_click_tip")}
                     </span>

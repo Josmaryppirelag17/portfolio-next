@@ -9,8 +9,15 @@ const __dirname = dirname(__filename);
 const eslintConfig = [
   {
     ignores: [
-      ".next/**", "node_modules/**", "coverage/**", "reports/**",
-      "playwright-report/**", "test-results/**", "dist/**", "build/**", "next-env.d.ts",
+      ".next/**",
+      "node_modules/**",
+      "coverage/**",
+      "reports/**",
+      "playwright-report/**",
+      "test-results/**",
+      "dist/**",
+      "build/**",
+      "next-env.d.ts",
     ],
   },
   nextPlugin.configs["core-web-vitals"],
@@ -19,7 +26,10 @@ const eslintConfig = [
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-expressions": "warn",
-      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
     },
     settings: {
       next: { rootDir: __dirname },

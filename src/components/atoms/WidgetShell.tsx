@@ -8,7 +8,13 @@ interface WidgetShellProps {
   children: React.ReactNode;
 }
 
-export default function WidgetShell({ title, icon: Icon, iconColor, status, children }: WidgetShellProps) {
+export default function WidgetShell({
+  title,
+  icon: Icon,
+  iconColor,
+  status,
+  children,
+}: WidgetShellProps) {
   return (
     <div className="p-4 bg-brand-bg/95 border border-brand-pale/10 rounded-xl flex flex-col justify-between h-48 select-none relative overflow-hidden">
       <div className="flex items-center justify-between mb-1.5 z-10">

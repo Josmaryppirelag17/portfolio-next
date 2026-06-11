@@ -154,7 +154,9 @@ describe("api/contact (POST)", () => {
 
   it("returns 500 when all services fail", async () => {
     mockProcessContactForm.mockResolvedValue({
-      db: false, email: false, telegram: false,
+      db: false,
+      email: false,
+      telegram: false,
       warnings: ["DB_ERR: connection failed", "EMAIL_ERR: send failed"],
     });
     const res = await POST(makeRequest(validData));

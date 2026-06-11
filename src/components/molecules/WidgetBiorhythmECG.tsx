@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { Activity, Heart } from "lucide-react";
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { getCanvasSafe } from "@/hooks/useCanvas";
 
 export default function WidgetBiorhythmECG() {
@@ -15,8 +15,8 @@ export default function WidgetBiorhythmECG() {
     const ctx = getCanvasSafe(canvasRef, reducedMotion);
     if (!ctx) return;
     const canvas = ctx.canvas;
-    let width = canvas.width = 170;
-    let height = canvas.height = 100;
+    let width = (canvas.width = 170);
+    let height = (canvas.height = 100);
     let x = 0;
     const points: number[] = new Array(width).fill(height / 2);
     let frameId: number;
@@ -26,8 +26,18 @@ export default function WidgetBiorhythmECG() {
       ctx.fillRect(0, 0, width, height);
       ctx.strokeStyle = "rgba(24, 190, 199, 0.04)";
       ctx.lineWidth = 1;
-      for (let i = 0; i < width; i += 16) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, height); ctx.stroke(); }
-      for (let j = 0; j < height; j += 16) { ctx.beginPath(); ctx.moveTo(0, j); ctx.lineTo(width, j); ctx.stroke(); }
+      for (let i = 0; i < width; i += 16) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, height);
+        ctx.stroke();
+      }
+      for (let j = 0; j < height; j += 16) {
+        ctx.beginPath();
+        ctx.moveTo(0, j);
+        ctx.lineTo(width, j);
+        ctx.stroke();
+      }
 
       const pulseCycle = (60 / bpm) * 60;
       const step = x % Math.round(pulseCycle);
@@ -65,7 +75,10 @@ export default function WidgetBiorhythmECG() {
     });
     resizeObserver.observe(canvas);
 
-    return () => { cancelAnimationFrame(frameId); resizeObserver.disconnect(); };
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+    };
   }, [bpm, reducedMotion]);
 
   return (
@@ -90,10 +103,18 @@ export default function WidgetBiorhythmECG() {
             <span>STIMULATED PULSE:</span>
             <span className="text-brand-cyan">{bpm} BPM</span>
           </div>
-          <input type="range" min="60" max="180" value={bpm}
-            onChange={(e) => { setBpm(Number(e.target.value)); setCortisol(Math.round(30 + (Number(e.target.value) - 60) * 0.5)); }}
+          <input
+            type="range"
+            min="60"
+            max="180"
+            value={bpm}
+            onChange={(e) => {
+              setBpm(Number(e.target.value));
+              setCortisol(Math.round(30 + (Number(e.target.value) - 60) * 0.5));
+            }}
             className="w-full accent-brand-cyan bg-[#090b1c] h-1 rounded cursor-pointer"
-            aria-label="Stimulated pulse BPM" />
+            aria-label="Stimulated pulse BPM"
+          />
         </div>
         <div className="flex flex-col justify-between">
           <div className="flex justify-between font-mono text-[7px] text-brand-pale/50 uppercase">
@@ -101,7 +122,14 @@ export default function WidgetBiorhythmECG() {
             <span className="text-[#DCF10B]">{cortisol}%</span>
           </div>
           <div className="h-3 w-full bg-[#0a0c1f] rounded border border-brand-pale/5 p-0.5 flex">
-            <div className="h-full bg-brand-lime rounded-xs" style={{ width: `${cortisol}%`, transition: 'width 0.2s ease', boxShadow: '0 0 6px #DCF10B' }} />
+            <div
+              className="h-full bg-brand-lime rounded-xs"
+              style={{
+                width: `${cortisol}%`,
+                transition: "width 0.2s ease",
+                boxShadow: "0 0 6px #DCF10B",
+              }}
+            />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Code } from "lucide-react";
 import { soundEngine } from "@/components/organisms/SoundEngine";
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { getCanvasSafe } from "@/hooks/useCanvas";
 
 export default function WidgetMatrixRain() {
@@ -17,8 +17,8 @@ export default function WidgetMatrixRain() {
     const ctx = getCanvasSafe(canvasRef, reducedMotion);
     if (!ctx) return;
     const canvas = ctx.canvas;
-    let width = canvas.width = 170;
-    let height = canvas.height = 140;
+    let width = (canvas.width = 170);
+    let height = (canvas.height = 140);
     const charList = "アカサタナハマヤラワガザダバパイウエオ0123456789%X_#@$◇◆";
     const fontSize = 8;
     let columns = Math.floor(width / fontSize);
@@ -28,7 +28,8 @@ export default function WidgetMatrixRain() {
     const draw = () => {
       ctx.fillStyle = "rgba(17, 18, 50, 0.15)";
       ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = colorScheme === "lime" ? "#DCF10B" : colorScheme === "pink" ? "#FD1EB1" : "#18BEC7";
+      ctx.fillStyle =
+        colorScheme === "lime" ? "#DCF10B" : colorScheme === "pink" ? "#FD1EB1" : "#18BEC7";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -54,7 +55,10 @@ export default function WidgetMatrixRain() {
     });
     resizeObserver.observe(canvas);
 
-    return () => { cancelAnimationFrame(frameId); resizeObserver.disconnect(); };
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+    };
   }, [colorScheme, speed, density, reducedMotion]);
 
   return (
@@ -70,16 +74,33 @@ export default function WidgetMatrixRain() {
         <canvas ref={canvasRef} className="absolute inset-0 block w-full h-full" />
       </div>
       <div className="grid grid-cols-3 gap-1 z-10">
-        <button onClick={() => { soundEngine.playClick(); setColorScheme(colorScheme === "lime" ? "cyan" : colorScheme === "cyan" ? "pink" : "lime"); }}
-          className="py-1 rounded border border-[#DCF10B]/30 font-mono text-[7px] text-center bg-brand-bg/90 hover:bg-brand-lime/10 text-brand-lime transition-all">
+        <button
+          onClick={() => {
+            soundEngine.playClick();
+            setColorScheme(
+              colorScheme === "lime" ? "cyan" : colorScheme === "cyan" ? "pink" : "lime",
+            );
+          }}
+          className="py-1 rounded border border-[#DCF10B]/30 font-mono text-[7px] text-center bg-brand-bg/90 hover:bg-brand-lime/10 text-brand-lime transition-all"
+        >
           COLOR: {colorScheme.toUpperCase()}
         </button>
-        <button onClick={() => { soundEngine.playHover(); setSpeed(prev => prev >= 2.0 ? 0.6 : prev + 0.45); }}
-          className="py-1 rounded border border-brand-pale/10 font-mono text-[7px] text-center bg-brand-bg/90 hover:bg-white/5 text-brand-pale transition-all">
+        <button
+          onClick={() => {
+            soundEngine.playHover();
+            setSpeed((prev) => (prev >= 2.0 ? 0.6 : prev + 0.45));
+          }}
+          className="py-1 rounded border border-brand-pale/10 font-mono text-[7px] text-center bg-brand-bg/90 hover:bg-white/5 text-brand-pale transition-all"
+        >
           SPEED: {speed.toFixed(1)}x
         </button>
-        <button onClick={() => { soundEngine.playHover(); setDensity(prev => prev >= 0.8 ? 0.25 : prev + 0.25); }}
-          className="py-1 rounded border border-brand-pale/10 font-mono text-[7px] text-center bg-brand-bg/90 hover:bg-white/5 text-brand-pale transition-all">
+        <button
+          onClick={() => {
+            soundEngine.playHover();
+            setDensity((prev) => (prev >= 0.8 ? 0.25 : prev + 0.25));
+          }}
+          className="py-1 rounded border border-brand-pale/10 font-mono text-[7px] text-center bg-brand-bg/90 hover:bg-white/5 text-brand-pale transition-all"
+        >
           DENSE: {Math.round(density * 100)}%
         </button>
       </div>

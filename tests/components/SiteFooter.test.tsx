@@ -4,7 +4,8 @@ import SiteFooter from "@/components/molecules/SiteFooter";
 
 describe("SiteFooter", () => {
   it("renders footer with translated text", () => {
-    const t = (key: string) => key === "rebuilt_paracas" ? "REBUILT" : key === "compiler_stable" ? "STABLE" : key;
+    const t = (key: string) =>
+      key === "rebuilt_paracas" ? "REBUILT" : key === "compiler_stable" ? "STABLE" : key;
     const { container } = render(<SiteFooter t={t} onScrollToTop={() => {}} />);
     expect(screen.getByText(/JOSMARY.DEV/)).toBeDefined();
     expect(screen.getByText("REBUILT")).toBeDefined();

@@ -8,16 +8,28 @@ export class StorageAdapter {
   }
 
   get<T>(key: string): T | null {
-    try { const raw = this.storage.getItem(key); return raw ? JSON.parse(raw) as T : null; }
-    catch { return null; }
+    try {
+      const raw = this.storage.getItem(key);
+      return raw ? (JSON.parse(raw) as T) : null;
+    } catch {
+      return null;
+    }
   }
 
   set<T>(key: string, value: T): void {
-    try { this.storage.setItem(key, JSON.stringify(value)); } catch { /* storage full */ }
+    try {
+      this.storage.setItem(key, JSON.stringify(value));
+    } catch {
+      /* storage full */
+    }
   }
 
-  remove(key: string): void { this.storage.removeItem(key); }
-  clear(): void { this.storage.clear(); }
+  remove(key: string): void {
+    this.storage.removeItem(key);
+  }
+  clear(): void {
+    this.storage.clear();
+  }
 }
 
 export const storageAdapter = new StorageAdapter();

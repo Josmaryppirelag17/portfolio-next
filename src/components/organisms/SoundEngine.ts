@@ -11,7 +11,7 @@ class SoundEngine {
     try {
       this.noiseWorker = new Worker(
         new URL("../../workers/noiseBuffer.worker.ts", import.meta.url),
-        { type: "module" }
+        { type: "module" },
       );
     } catch {
       this.noiseWorker = null;
@@ -193,12 +193,7 @@ class SoundEngine {
     });
   }
 
-  private playTone(
-    freq: number,
-    type: OscillatorType,
-    duration: number,
-    volume: number = 0.1
-  ) {
+  private playTone(freq: number, type: OscillatorType, duration: number, volume: number = 0.1) {
     if (!this.ctx) return;
     try {
       const osc = this.ctx.createOscillator();
@@ -208,10 +203,7 @@ class SoundEngine {
       osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
 
       gain.gain.setValueAtTime(volume, this.ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        this.ctx.currentTime + duration
-      );
+      gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
 
       osc.connect(gain);
       gain.connect(this.ctx.destination);

@@ -9,7 +9,9 @@ vi.mock("@/components/organisms/SoundEngine", () => ({
 
 vi.mock("@/components/atoms/WidgetShell", () => ({
   default: ({ title, children }: { title: string; children: React.ReactNode }) => (
-    <div data-testid="widget-shell" data-title={title}>{children}</div>
+    <div data-testid="widget-shell" data-title={title}>
+      {children}
+    </div>
   ),
 }));
 

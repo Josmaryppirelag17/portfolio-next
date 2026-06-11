@@ -54,23 +54,34 @@ export default function WidgetCoreBalancer({ onCoreStateChange }: CoreBalancerPr
       }
     }
     setTimeout(() => {
-      setPlutonium(40); setPlasma(35); setWarpCore(45); setVentActive(false);
+      setPlutonium(40);
+      setPlasma(35);
+      setWarpCore(45);
+      setVentActive(false);
     }, 1800);
   };
 
   return (
-    <div className={`p-4 bg-brand-bg/95 border rounded-xl flex flex-col justify-between h-48 select-none relative overflow-hidden transition-all duration-300 ${ventActive ? "border-brand-lime shadow-[0_0_12px_rgba(220,241,11,0.25)]" : isOverload ? "border-brand-pink animate-pulse shadow-[0_0_15px_#FD1EB1]" : "border-brand-pale/10"}`}>
+    <div
+      className={`p-4 bg-brand-bg/95 border rounded-xl flex flex-col justify-between h-48 select-none relative overflow-hidden transition-all duration-300 ${ventActive ? "border-brand-lime shadow-[0_0_12px_rgba(220,241,11,0.25)]" : isOverload ? "border-brand-pink animate-pulse shadow-[0_0_15px_#FD1EB1]" : "border-brand-pale/10"}`}
+    >
       <div className="flex items-center justify-between mb-1.5 z-10">
         <span className="flex items-center space-x-1 font-mono text-[9px] text-[#DCF10B] uppercase tracking-widest">
-          <Flame size={12} className={isOverload ? "text-brand-pink animate-bounce" : "text-brand-lime"} />
+          <Flame
+            size={12}
+            className={isOverload ? "text-brand-pink animate-bounce" : "text-brand-lime"}
+          />
           <span>FUSION CORE THERMALS</span>
         </span>
-        <span className={`font-mono text-[8px] px-1 py-0.2 rounded ${ventActive ? "bg-brand-lime/25 text-brand-lime" : isOverload ? "bg-brand-pink/25 text-brand-pink animate-ping" : "bg-brand-lime/10 text-brand-lime"}`}>
+        <span
+          className={`font-mono text-[8px] px-1 py-0.2 rounded ${ventActive ? "bg-brand-lime/25 text-brand-lime" : isOverload ? "bg-brand-pink/25 text-brand-pink animate-ping" : "bg-brand-lime/10 text-brand-lime"}`}
+        >
           {ventActive ? "VENT_BLOWING" : isOverload ? "⚠️ RETRO_OVERLOAD" : "SYS_STABLE"}
         </span>
       </div>
       <div className="space-y-1.5 flex-grow justify-center flex flex-col z-10">
-        {[{ label: "PLUTONIUM SHIELD FLUX", value: plutonium, color: "#DCF10B", set: setPlutonium },
+        {[
+          { label: "PLUTONIUM SHIELD FLUX", value: plutonium, color: "#DCF10B", set: setPlutonium },
           { label: "plasma CONDENSATE", value: plasma, color: "#18BEC7", set: setPlasma },
           { label: "WARP CORE STRETCH", value: warpCore, color: "#FD1EB1", set: setWarpCore },
         ].map((s) => (
@@ -79,8 +90,16 @@ export default function WidgetCoreBalancer({ onCoreStateChange }: CoreBalancerPr
               <span>{s.label}</span>
               <span style={{ color: s.color }}>{s.value}%</span>
             </div>
-            <input type="range" min="10" max="100" value={s.value} disabled={ventActive}
-              onChange={(e) => { soundEngine.playHover(); s.set(Number(e.target.value)); }}
+            <input
+              type="range"
+              min="10"
+              max="100"
+              value={s.value}
+              disabled={ventActive}
+              onChange={(e) => {
+                soundEngine.playHover();
+                s.set(Number(e.target.value));
+              }}
               className="w-full bg-[#090b1c] h-1.5 rounded cursor-pointer"
               style={{ accentColor: s.color }}
               aria-label={s.label}
@@ -91,14 +110,22 @@ export default function WidgetCoreBalancer({ onCoreStateChange }: CoreBalancerPr
       <div className="h-7 flex items-center justify-center mt-1 z-10">
         <AnimatePresence mode="wait">
           {ventActive ? (
-            <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }}
-              className="w-full h-full text-center flex items-center justify-center bg-brand-lime/10 border border-brand-lime text-brand-lime font-mono text-[8.5px] rounded animate-pulse">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="w-full h-full text-center flex items-center justify-center bg-brand-lime/10 border border-brand-lime text-brand-lime font-mono text-[8.5px] rounded animate-pulse"
+            >
               COOLANT STEAM FLOOD VENTING... {Math.round(averageLoad)}°C
             </motion.div>
           ) : isOverload ? (
-            <motion.button initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: [1, 1.03, 1], opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+            <motion.button
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: [1, 1.03, 1], opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               onClick={triggerEmergencyClean}
-              className="w-full h-full bg-brand-pink text-white flex items-center justify-center gap-1 font-mono text-[8px] font-bold rounded animate-pulse cursor-pointer border border-[#111232] shadow-[0_0_10px_#FD1EB1] hover:bg-brand-pink/90">
+              className="w-full h-full bg-brand-pink text-white flex items-center justify-center gap-1 font-mono text-[8px] font-bold rounded animate-pulse cursor-pointer border border-[#111232] shadow-[0_0_10px_#FD1EB1] hover:bg-brand-pink/90"
+            >
               <ShieldAlert size={12} className="animate-bounce" />
               EMERGENCY COOLANT DEPRESSURIZE!
             </motion.button>

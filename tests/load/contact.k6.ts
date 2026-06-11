@@ -33,7 +33,7 @@ export default function () {
   const params = {
     headers: {
       "Content-Type": "application/json",
-      "Origin": BASE_URL,
+      Origin: BASE_URL,
     },
   };
 

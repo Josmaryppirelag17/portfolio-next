@@ -8,7 +8,8 @@ const structuredData = {
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
       name: "Josmary Pirela",
-      description: "Portfolio de Josmary Pirela: desarrollo full-stack creativo con React y Next.js.",
+      description:
+        "Portfolio de Josmary Pirela: desarrollo full-stack creativo con React y Next.js.",
       inLanguage: ["es", "en"],
     },
     {

@@ -1,7 +1,10 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import {
-  loadCyberMessages, appendCyberMessage, getAdminDisplayMessages,
-  clearUserCyberMessages, hasUserCyberMessages,
+  loadCyberMessages,
+  appendCyberMessage,
+  getAdminDisplayMessages,
+  clearUserCyberMessages,
+  hasUserCyberMessages,
   CYBER_MESSAGES_KEY,
   DEMO_CYBER_MESSAGES,
 } from "@/lib/cyberMessages";
@@ -10,10 +13,18 @@ function mockLocalStorage() {
   let store: Record<string, string> = {};
   const storage: Storage = {
     getItem: (key: string) => store[key] ?? null,
-    setItem: (key: string, value: string) => { store[key] = String(value); },
-    removeItem: (key: string) => { delete store[key]; },
-    clear: () => { store = {}; },
-    get length() { return Object.keys(store).length; },
+    setItem: (key: string, value: string) => {
+      store[key] = String(value);
+    },
+    removeItem: (key: string) => {
+      delete store[key];
+    },
+    clear: () => {
+      store = {};
+    },
+    get length() {
+      return Object.keys(store).length;
+    },
     key: (index: number) => Object.keys(store)[index] ?? null,
   };
   return { storage, store };
@@ -39,7 +50,14 @@ describe("cyberMessages", () => {
     });
 
     it("parses stored JSON", () => {
-      const msg = { id: "1", name: "Test", email: "t@t.com", message: "Hi", timestamp: "now", secured: true };
+      const msg = {
+        id: "1",
+        name: "Test",
+        email: "t@t.com",
+        message: "Hi",
+        timestamp: "now",
+        secured: true,
+      };
       ls.setItem(CYBER_MESSAGES_KEY, JSON.stringify([msg]));
       expect(loadCyberMessages()).toEqual([msg]);
     });

@@ -9,18 +9,20 @@ describe("PortfolioErrorBoundary", () => {
     render(
       <PortfolioErrorBoundary>
         <div>Child Content</div>
-      </PortfolioErrorBoundary>
+      </PortfolioErrorBoundary>,
     );
     expect(screen.getByText("Child Content")).toBeDefined();
   });
 
   it("renders error fallback on error", () => {
-    const Throw = () => { throw new Error("Test error"); };
+    const Throw = () => {
+      throw new Error("Test error");
+    };
     const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     render(
       <PortfolioErrorBoundary>
         <Throw />
-      </PortfolioErrorBoundary>
+      </PortfolioErrorBoundary>,
     );
     expect(screen.getByText(/Oops/)).toBeDefined();
     expect(screen.getByText(/Recargar la pagina/)).toBeDefined();
@@ -30,12 +32,14 @@ describe("PortfolioErrorBoundary", () => {
 
   it("shows error message in development", () => {
     vi.stubEnv("NODE_ENV", "development");
-    const Throw = () => { throw new Error("Dev error"); };
+    const Throw = () => {
+      throw new Error("Dev error");
+    };
     const spy = vi.spyOn(console, "error").mockImplementation(() => {});
     render(
       <PortfolioErrorBoundary>
         <Throw />
-      </PortfolioErrorBoundary>
+      </PortfolioErrorBoundary>,
     );
     expect(screen.getByText("Dev error")).toBeDefined();
     spy.mockRestore();

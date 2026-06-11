@@ -22,7 +22,7 @@ export function useMatrixEasterEgg() {
 
   const handleLogoTap = () => {
     const now = Date.now();
-    tapTimesRef.current = tapTimesRef.current.filter(t => now - t < 3000);
+    tapTimesRef.current = tapTimesRef.current.filter((t) => now - t < 3000);
     tapTimesRef.current.push(now);
     if (tapTimesRef.current.length >= 5) {
       tapTimesRef.current = [];

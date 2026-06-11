@@ -2,14 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
-import {
-  Compass,
-  Cpu,
-  RefreshCw,
-  Zap,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
+import { Compass, Cpu, RefreshCw, Zap, Volume2, VolumeX } from "lucide-react";
 import { Star } from "lucide-react";
 import { soundEngine } from "./SoundEngine";
 import { useLanguage } from "@/context/LanguageContext";
@@ -28,7 +21,10 @@ interface HeroPlaygroundProps {
   toggleMasterAudio?: () => void;
 }
 
-export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: HeroPlaygroundProps = {}) {
+export default function HeroPlayground({
+  isAudioActive,
+  toggleMasterAudio,
+}: HeroPlaygroundProps = {}) {
   const { t } = useLanguage();
   const reducedMotion = usePrefersReducedMotion();
   const [activeShape, setActiveShape] = useState<ShapeType>("NEXUS_CRYSTAL");
@@ -68,10 +64,12 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
   }, [accent]);
 
   const audioOn = isAudioActive !== undefined ? isAudioActive : soundEngine.isEnabled();
-  const masterToggle = toggleMasterAudio || (() => {
-    soundEngine.toggle();
-    soundEngine.playToggleSound();
-  });
+  const masterToggle =
+    toggleMasterAudio ||
+    (() => {
+      soundEngine.toggle();
+      soundEngine.playToggleSound();
+    });
 
   // Definición de coordenadas para formas 3D
   const getShapeData = (type: ShapeType): CustomShape3D => {
@@ -392,15 +390,7 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
     draw();
 
     return () => cancelAnimationFrame(animId);
-  }, [
-    activeShape,
-    accent,
-    rotationSpeed,
-    wireframeScale,
-    mouseX,
-    mouseY,
-    reducedMotion,
-  ]);
+  }, [activeShape, accent, rotationSpeed, wireframeScale, mouseX, mouseY, reducedMotion]);
 
   // Click triggers synthesizers sound + custom balloon release
   const handleConfiguratorClick = () => {
@@ -421,21 +411,36 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
       onMouseMove={handleMouseMove}
     >
       {/* Decorative Cyber vertical indicators */}
-      <div className="absolute top-1/4 right-0 flex flex-col gap-1 pr-2 z-20 pointer-events-none" aria-hidden="true">
+      <div
+        className="absolute top-1/4 right-0 flex flex-col gap-1 pr-2 z-20 pointer-events-none"
+        aria-hidden="true"
+      >
         <div className="h-12 w-[3px] bg-[#FD1EB1]"></div>
         <div className="h-4 w-[3px] bg-[#DCF10B]"></div>
         <div className="h-12 w-[3px] bg-[#18BEC7]"></div>
       </div>
 
       {/* Floating vertical sidebar retro text */}
-      <div className="absolute bottom-32 left-8 transform -rotate-90 origin-left text-[9px] font-bold tracking-[0.8em] text-[#18BEC7] opacity-35 uppercase whitespace-nowrap hidden xl:block pointer-events-none" aria-hidden="true">
+      <div
+        className="absolute bottom-32 left-8 transform -rotate-90 origin-left text-[9px] font-bold tracking-[0.8em] text-[#18BEC7] opacity-35 uppercase whitespace-nowrap hidden xl:block pointer-events-none"
+        aria-hidden="true"
+      >
         CREATIVE DEVELOPER — DESIGNER — OPTIMIZER
       </div>
 
-          {/* Background neon dynamic blobs */}
-      <div className="absolute top-10 left-[-10%] w-[350px] h-[350px] glow-spot-pink opacity-25" aria-hidden="true" />
-      <div className="absolute bottom-10 right-[-10%] w-[350px] h-[350px] glow-spot-cyan opacity-25" aria-hidden="true" />
-      <div className="absolute top-[40%] left-[45%] w-[250px] h-[250px] glow-spot-lime opacity-15" aria-hidden="true" />
+      {/* Background neon dynamic blobs */}
+      <div
+        className="absolute top-10 left-[-10%] w-[350px] h-[350px] glow-spot-pink opacity-25"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-10 right-[-10%] w-[350px] h-[350px] glow-spot-cyan opacity-25"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-[40%] left-[45%] w-[250px] h-[250px] glow-spot-lime opacity-15"
+        aria-hidden="true"
+      />
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         {/* Left Hand: High impact cyber retro lettering containing balloons */}
@@ -465,9 +470,7 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
               ) : (
                 <VolumeX size={13} className="shrink-0" />
               )}
-              <span>
-                {audioOn ? t("audio_synths_active") : t("audio_synths_off")}
-              </span>
+              <span>{audioOn ? t("audio_synths_active") : t("audio_synths_off")}</span>
             </button>
           </div>
 
@@ -485,7 +488,8 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
                 JOSMARY
               </span>
               <span className="block text-brand-lime flex items-center select-none">
-                PIRELA<span className="inline-block origin-bottom ml-2 text-4xl sm:text-6xl md:text-7xl animate-[star-wiggle_4s ease-in-out infinite]">
+                PIRELA
+                <span className="inline-block origin-bottom ml-2 text-4xl sm:text-6xl md:text-7xl animate-[star-wiggle_4s ease-in-out infinite]">
                   <Star />
                 </span>
               </span>
@@ -553,21 +557,15 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
               <span
                 className={`w-3.5 h-3.5 rounded-full ${accent === "pink" ? "bg-brand-pink" : accent === "lime" ? "bg-brand-lime" : "bg-brand-cyan"}`}
               />
-              <div className="font-mono text-[10px] text-brand-pale/50">
-                RENDER_STAGE_V1.9
-              </div>
+              <div className="font-mono text-[10px] text-brand-pale/50">RENDER_STAGE_V1.9</div>
             </div>
             <div className="flex items-center space-x-2 text-xs font-mono text-brand-cyan bg-brand-bg/50 px-2.5 py-1 rounded">
-              <RefreshCw
-                size={11}
-                className="animate-spin"
-                style={{ animationDuration: "12s" }}
-              />
+              <RefreshCw size={11} className="animate-spin" style={{ animationDuration: "12s" }} />
               <span>FPS: 60.00</span>
             </div>
           </div>
 
-            {/* Primary Render Viewer for 3D Geometry */}
+          {/* Primary Render Viewer for 3D Geometry */}
           <div
             role="region"
             aria-label="Visor 3D interactivo"
@@ -655,31 +653,30 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
               <span className="font-mono text-[9px] text-brand-pale/50 uppercase">
                 {t("geometry_model")}
               </span>
-              <div className="grid grid-cols-4 gap-1.5" role="group" aria-label="Selector de geometría 3D">
-                {(
-                  [
-                    "NEXUS_CRYSTAL",
-                    "HYPERCUBE",
-                    "CYBERGRID",
-                    "ORBITAL_RINGS",
-                  ] as ShapeType[]
-                ).map((sh) => (
-                  <button
-                    key={sh}
-                    onClick={() => {
-                      setActiveShape(sh);
-                      soundEngine.playClick();
-                    }}
-                    aria-pressed={activeShape === sh}
-                    className={`text-[8px] font-mono py-1.5 px-0.5 rounded text-center transition-all cursor-pointer truncate ${
-                      activeShape === sh
-                        ? "bg-brand-cyan text-brand-bg font-bold shadow"
-                        : "bg-brand-bg border border-brand-pale/10 text-brand-pale hover:bg-brand-pale/10"
-                    }`}
-                  >
-                    {sh.replace("_", " ")}
-                  </button>
-                ))}
+              <div
+                className="grid grid-cols-4 gap-1.5"
+                role="group"
+                aria-label="Selector de geometría 3D"
+              >
+                {(["NEXUS_CRYSTAL", "HYPERCUBE", "CYBERGRID", "ORBITAL_RINGS"] as ShapeType[]).map(
+                  (sh) => (
+                    <button
+                      key={sh}
+                      onClick={() => {
+                        setActiveShape(sh);
+                        soundEngine.playClick();
+                      }}
+                      aria-pressed={activeShape === sh}
+                      className={`text-[8px] font-mono py-1.5 px-0.5 rounded text-center transition-all cursor-pointer truncate ${
+                        activeShape === sh
+                          ? "bg-brand-cyan text-brand-bg font-bold shadow"
+                          : "bg-brand-bg border border-brand-pale/10 text-brand-pale hover:bg-brand-pale/10"
+                      }`}
+                    >
+                      {sh.replace("_", " ")}
+                    </button>
+                  ),
+                )}
               </div>
             </div>
 

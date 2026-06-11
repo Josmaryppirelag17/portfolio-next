@@ -47,12 +47,10 @@ function ErrorFallback({ error, onReload }: { error: Error | null; onReload: () 
       role="alert"
       className="min-h-screen flex flex-col items-center justify-center gap-4 bg-brand-bg text-brand-pale px-6 font-sans"
     >
-      <h2 className="font-display text-lg uppercase text-brand-pink">
-        Oops — algo salio mal
-      </h2>
+      <h2 className="font-display text-lg uppercase text-brand-pink">Oops — algo salio mal</h2>
       <p className="font-mono text-sm text-brand-pale/80 text-center max-w-md">
-        Esta seccion encontro un error inesperado. Puedes recargar la pagina
-        para intentarlo de nuevo.
+        Esta seccion encontro un error inesperado. Puedes recargar la pagina para intentarlo de
+        nuevo.
       </p>
       {process.env.NODE_ENV === "development" && error && (
         <pre className="font-mono text-[10px] text-brand-cyan/70 max-w-lg overflow-auto p-3 border border-brand-pale/10 rounded">

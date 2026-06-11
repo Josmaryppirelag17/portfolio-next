@@ -6,10 +6,7 @@ import { lt } from "drizzle-orm";
 import { getErrorMessage } from "@/utils/errors";
 import { escapeHtml } from "@/utils/escape";
 
-const ALLOWED_ORIGINS = [
-  "https://josmarypirela.dev",
-  "https://www.josmarypirela.dev",
-];
+const ALLOWED_ORIGINS = ["https://josmarypirela.dev", "https://www.josmarypirela.dev"];
 
 export function isOriginAllowed(origin: string | null): boolean {
   if (!origin) return false;
@@ -105,8 +102,7 @@ async function sendTelegram(
   }
 
   try {
-    const escapeMarkdown = (text: string) =>
-      text.replace(/[_*[\]()~`>#+=|{}.!-]/g, "\\$&");
+    const escapeMarkdown = (text: string) => text.replace(/[_*[\]()~`>#+=|{}.!-]/g, "\\$&");
 
     const tgUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
@@ -132,7 +128,7 @@ async function sendTelegram(
     clearTimeout(timeoutId);
 
     if (!response.ok) {
-      const tgErrData = await response.json() as { description?: string };
+      const tgErrData = (await response.json()) as { description?: string };
       throw new Error(tgErrData.description || "Telegram API error");
     }
     return true;

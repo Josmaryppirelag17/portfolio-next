@@ -24,7 +24,7 @@ export function useMobileMenu() {
     if (!menu) return;
 
     const focusable = menu.querySelectorAll<HTMLElement>(
-      'a, button, [tabindex]:not([tabindex="-1"])'
+      'a, button, [tabindex]:not([tabindex="-1"])',
     );
     if (focusable.length) focusable[0]!.focus();
 

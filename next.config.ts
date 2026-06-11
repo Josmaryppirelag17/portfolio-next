@@ -10,21 +10,15 @@ const nextConfig: NextConfig = {
   headers: async () => [
     {
       source: "/images/(.*)",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
     },
     {
       source: "/fonts/(.*)",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
     },
     {
       source: "/(.*).(svg|png|jpg|jpeg|webp|avif|ico)",
-      headers: [
-        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-      ],
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
     },
   ],
   poweredByHeader: false,
@@ -32,10 +26,7 @@ const nextConfig: NextConfig = {
   compress: true,
   generateEtags: true,
   experimental: {
-    optimizePackageImports: [
-      "lucide-react",
-      "motion",
-    ],
+    optimizePackageImports: ["lucide-react", "motion"],
     webpackBuildWorker: true,
   },
 };

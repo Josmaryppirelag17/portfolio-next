@@ -25,9 +25,7 @@ export function getClientIp(req: NextRequest): string {
   return "unknown";
 }
 
-export async function checkContactRateLimit(
-  req: NextRequest
-): Promise<RateLimitResult> {
+export async function checkContactRateLimit(req: NextRequest): Promise<RateLimitResult> {
   const db = getDb();
 
   if (!db) {
@@ -51,12 +49,7 @@ export async function checkContactRateLimit(
     const result = await db
       .select({ count: sql<number>`count(*)::int` })
       .from(rateLimits)
-      .where(
-        and(
-          eq(rateLimits.ip, ip),
-          gte(rateLimits.attemptedAt, oneHourAgo)
-        )
-      );
+      .where(and(eq(rateLimits.ip, ip), gte(rateLimits.attemptedAt, oneHourAgo)));
 
     const count = result[0]?.count ?? 0;
 

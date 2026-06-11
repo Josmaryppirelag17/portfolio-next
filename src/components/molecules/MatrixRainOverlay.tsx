@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
-import { setupCanvas } from '@/hooks/useCanvas';
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { setupCanvas } from "@/hooks/useCanvas";
 
 export default function MatrixRainOverlay({ onClose }: { onClose: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -29,7 +29,9 @@ export default function MatrixRainOverlay({ onClose }: { onClose: () => void }) 
     const charsArr = matrixChars.split("");
     const fontSize = 14;
     const columns = Math.ceil(window.innerWidth / fontSize);
-    const rainDrops: number[] = Array.from({ length: columns }, () => Math.floor(Math.random() * -100));
+    const rainDrops: number[] = Array.from({ length: columns }, () =>
+      Math.floor(Math.random() * -100),
+    );
 
     let frameId: number;
     const draw = () => {
@@ -64,19 +66,25 @@ export default function MatrixRainOverlay({ onClose }: { onClose: () => void }) 
       )}
       <div className="relative z-10 text-center space-y-6 max-w-xl p-6 sm:p-8 bg-black/95 border-3 border-[#00ff66] rounded-xl shadow-[0_0_50px_rgba(0,255,102,0.4)]">
         <h2 className="text-xl sm:text-2xl font-black tracking-widest uppercase mb-1 flex items-center justify-center space-x-2.5 animate-pulse">
-          <span aria-hidden="true">[===] </span>MATRIX_BYPASS_ENGAGED<span aria-hidden="true"> [===]</span>
+          <span aria-hidden="true">[===] </span>MATRIX_BYPASS_ENGAGED
+          <span aria-hidden="true"> [===]</span>
         </h2>
         <div className="h-0.5 w-full bg-[#00ff66] mb-3" />
         <p className="text-xs text-left leading-relaxed text-[#00ff66]/90 font-mono space-y-1">
           &gt; EXECUTING SUPER-INTELLIGENT KERNEL HIJACK... SUCCESS
-          <br />&gt; OVERRIDING COMPILER THREAD CACHE CODES: OK
-          <br />&gt; ARCHITECTURE TINT RECONFIGURED TO NEON HACKER GREEN
-          <br />&gt; ALL SOUND ESCALATION GATES: PRE-LIMIT AMPLIFIED
+          <br />
+          &gt; OVERRIDING COMPILER THREAD CACHE CODES: OK
+          <br />
+          &gt; ARCHITECTURE TINT RECONFIGURED TO NEON HACKER GREEN
+          <br />
+          &gt; ALL SOUND ESCALATION GATES: PRE-LIMIT AMPLIFIED
         </p>
         <div className="bg-[#051c08] p-4 rounded border border-[#00ff66]/30 font-mono text-[9px] sm:text-[10px] text-left text-[#00ff66] leading-relaxed select-all">
           SYS_OPERATOR: JOSMARY_CRYPT_MAIN
-          <br />FUSION_CORE_TINT: LIME_OVERCLOCK_ACTIVE
-          <br />COMPILE_HEALTH: 100% UNINTERRUPTED
+          <br />
+          FUSION_CORE_TINT: LIME_OVERCLOCK_ACTIVE
+          <br />
+          COMPILE_HEALTH: 100% UNINTERRUPTED
         </div>
         <button
           onClick={onClose}

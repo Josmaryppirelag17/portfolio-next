@@ -33,9 +33,7 @@ export default function OGImage() {
         <span style={{ fontSize: "22px", color: "#DCF10B", fontWeight: 700 }}>
           SYS_STATUS: OPERATIONAL
         </span>
-        <span style={{ fontSize: "20px", color: "#18BEC7" }}>
-          portfolio v2
-        </span>
+        <span style={{ fontSize: "20px", color: "#18BEC7" }}>portfolio v2</span>
       </div>
       <div
         style={{

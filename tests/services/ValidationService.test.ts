@@ -1,9 +1,19 @@
 import { describe, it, expect } from "vitest";
-import { contactSchema, isFormTimestampValid, formatZodErrors, ValidationService } from "@/core/services/ValidationService";
+import {
+  contactSchema,
+  isFormTimestampValid,
+  formatZodErrors,
+  ValidationService,
+} from "@/core/services/ValidationService";
 
 describe("ValidationService", () => {
   describe("contactSchema", () => {
-    const valid = { name: "John", email: "john@test.com", message: "Hello", formTimestamp: Date.now() };
+    const valid = {
+      name: "John",
+      email: "john@test.com",
+      message: "Hello",
+      formTimestamp: Date.now(),
+    };
 
     it("accepts valid input", () => {
       const r = contactSchema.safeParse(valid);

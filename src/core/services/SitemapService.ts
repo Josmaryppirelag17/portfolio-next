@@ -4,7 +4,12 @@ export const runtime = "edge";
 
 const SITE_URL = "https://josmarypirela.dev";
 
-function url(loc: string, priority: string, lastmod: string, alternates: { hreflang: string; href: string }[]) {
+function url(
+  loc: string,
+  priority: string,
+  lastmod: string,
+  alternates: { hreflang: string; href: string }[],
+) {
   return `  <url>
     <loc>${escapeXml(loc)}</loc>
     <lastmod>${lastmod}</lastmod>
@@ -22,15 +27,15 @@ export async function generateSitemapResponse(): Promise<Response> {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${url(`${SITE_URL}/`, "1.0", today, [
-    { hreflang: "es", href: `${SITE_URL}/` },
-    { hreflang: "en", href: `${SITE_URL}/en/` },
-    { hreflang: "x-default", href: `${SITE_URL}/` },
-  ])}
+  { hreflang: "es", href: `${SITE_URL}/` },
+  { hreflang: "en", href: `${SITE_URL}/en/` },
+  { hreflang: "x-default", href: `${SITE_URL}/` },
+])}
 ${url(`${SITE_URL}/en/`, "1.0", today, [
-    { hreflang: "es", href: `${SITE_URL}/` },
-    { hreflang: "en", href: `${SITE_URL}/en/` },
-    { hreflang: "x-default", href: `${SITE_URL}/` },
-  ])}
+  { hreflang: "es", href: `${SITE_URL}/` },
+  { hreflang: "en", href: `${SITE_URL}/en/` },
+  { hreflang: "x-default", href: `${SITE_URL}/` },
+])}
 </urlset>`;
 
     return new Response(xml, {

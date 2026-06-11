@@ -1,5 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { checkContactRateLimit, getClientIp, RateLimitService } from "@/core/services/RateLimitService";
+import {
+  checkContactRateLimit,
+  getClientIp,
+  RateLimitService,
+} from "@/core/services/RateLimitService";
 
 vi.mock("@/lib/db/connection", () => ({
   getDb: vi.fn(),
@@ -36,7 +40,9 @@ describe("RateLimitService", () => {
     });
 
     it("takes first IP from comma-separated x-forwarded-for", () => {
-      const req = new Request("http://localhost", { headers: { "x-forwarded-for": " 1.1.1.1, 2.2.2.2 " } });
+      const req = new Request("http://localhost", {
+        headers: { "x-forwarded-for": " 1.1.1.1, 2.2.2.2 " },
+      });
       expect(getClientIp(req as any)).toBe("1.1.1.1");
     });
   });
@@ -82,7 +88,9 @@ describe("RateLimitService", () => {
 
     it("skips on DB error", async () => {
       const mockDb = {
-        insert: vi.fn().mockReturnValue({ values: vi.fn().mockRejectedValue(new Error("DB down")) }),
+        insert: vi
+          .fn()
+          .mockReturnValue({ values: vi.fn().mockRejectedValue(new Error("DB down")) }),
       };
       (getDb as unknown as ReturnType<typeof vi.fn>).mockReturnValue(mockDb);
       const result = await checkContactRateLimit(mockRequest() as any);

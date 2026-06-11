@@ -3,7 +3,15 @@
 import React, { useState, useEffect } from "react";
 import { motion, type MotionValue, useMotionValue, useSpring, useTransform } from "motion/react";
 
-function EyeBall({ blink, eyeX, eyeY }: { blink: boolean; eyeX: MotionValue<number>; eyeY: MotionValue<number> }) {
+function EyeBall({
+  blink,
+  eyeX,
+  eyeY,
+}: {
+  blink: boolean;
+  eyeX: MotionValue<number>;
+  eyeY: MotionValue<number>;
+}) {
   return (
     <div
       className="w-10 h-10 bg-[#fafafc] border-4 border-[#090a12] rounded-full relative overflow-hidden flex items-center justify-center"
@@ -234,9 +242,7 @@ export default function CyberAvatar() {
             className="absolute left-[38px] top-28 w-1 h-1 rounded-full bg-[#FD1EB1]"
             animate={{
               scale: blink ? [1, 2.5, 1] : isHovered ? [1, 1.8, 1] : 1,
-              boxShadow: blink
-                ? "0 0 12px 3px #FD1EB1, 0 0 4px #FD1EB1"
-                : "0 0 6px 1px #FD1EB1",
+              boxShadow: blink ? "0 0 12px 3px #FD1EB1, 0 0 4px #FD1EB1" : "0 0 6px 1px #FD1EB1",
             }}
             transition={{ duration: 0.35 }}
           />
@@ -244,9 +250,7 @@ export default function CyberAvatar() {
             className="absolute right-[46px] top-36 w-1 h-1 rounded-full bg-[#18BEC7]"
             animate={{
               scale: blink ? [1, 2.5, 1] : isHovered ? [1, 1.8, 1] : 1,
-              boxShadow: blink
-                ? "0 0 12px 3px #18BEC7, 0 0 4px #18BEC7"
-                : "0 0 6px 1px #18BEC7",
+              boxShadow: blink ? "0 0 12px 3px #18BEC7, 0 0 4px #18BEC7" : "0 0 6px 1px #18BEC7",
             }}
             transition={{ duration: 0.35 }}
           />
@@ -266,8 +270,7 @@ export default function CyberAvatar() {
             className="w-full h-full bg-[#11121d] border-4 border-[#141525] relative shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
             style={{
               borderRadius: "44% 44% 18% 18% / 70% 70% 0% 0%",
-              boxShadow:
-                "0px 8px 0px #090a12, inset 0 8px 16px rgba(24,190,199,0.12)",
+              boxShadow: "0px 8px 0px #090a12, inset 0 8px 16px rgba(24,190,199,0.12)",
             }}
           >
             {/* Cyberpunk high-collar neck lining cutout */}
@@ -341,8 +344,7 @@ export default function CyberAvatar() {
               className="absolute w-40 h-52 bg-gradient-to-b from-[#a18167] via-[#947761] to-[#7f6049] border-4 border-[#090a12] flex flex-col items-center justify-center relative overflow-visible z-10"
               style={{
                 borderRadius: "50% 50% 40% 40% / 55% 55% 45% 45%",
-                boxShadow:
-                  "0px 10px 0px #090a12, inset 0 4px 12px rgba(255,255,255,0.08)",
+                boxShadow: "0px 10px 0px #090a12, inset 0 4px 12px rgba(255,255,255,0.08)",
               }}
             >
               {/* Ears */}

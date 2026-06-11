@@ -41,9 +41,7 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
   const [isLogged, setIsLogged] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [messages, setMessages] = useState<CyberMessage[]>([]);
-  const [activeTab, setActiveTab] = useState<"STATISTICS" | "DB_MESSAGES">(
-    "STATISTICS"
-  );
+  const [activeTab, setActiveTab] = useState<"STATISTICS" | "DB_MESSAGES">("STATISTICS");
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [usingDemoData, setUsingDemoData] = useState(true);
@@ -107,14 +105,17 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
       }
       if (isLogged) {
         if (e.key === "1") setActiveTab("STATISTICS");
-        if (e.key === "2") { setActiveTab("DB_MESSAGES"); refreshMessages(); }
+        if (e.key === "2") {
+          setActiveTab("DB_MESSAGES");
+          refreshMessages();
+        }
       }
       if (e.key === "Tab") {
         trapTabFocus(e, consoleRef);
       }
     };
     window.addEventListener("keydown", onKeyDown);
-    const closeBtn = consoleRef.current?.querySelector<HTMLElement>('button');
+    const closeBtn = consoleRef.current?.querySelector<HTMLElement>("button");
     closeBtn?.focus();
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isOpen, isLogged, handleClose, refreshMessages]);
@@ -143,7 +144,9 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
           setLoginLocked(true);
           setErrorMsg(`ACCESS LOCKED: TOO MANY ATTEMPTS. COOLDOWN ${LOGIN_LOCKOUT_MS / 1000}s.`);
         } else {
-          setErrorMsg(`ACCESS DENIED: INVALID KEYWORDS (${remaining} attempt${remaining === 1 ? "" : "s"} remaining)`);
+          setErrorMsg(
+            `ACCESS DENIED: INVALID KEYWORDS (${remaining} attempt${remaining === 1 ? "" : "s"} remaining)`,
+          );
         }
         setIsLoggingIn(false);
         soundEngine.playError();
@@ -225,10 +228,10 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
                     </span>
                   </div>
                   <p className="font-sans text-xs text-brand-pale/80 leading-relaxed max-w-md mx-auto">
-                    Local simulation panel. Real form messages are persisted
-                    in <code className="text-brand-cyan">localStorage</code>{" "}
-                    under key <code className="text-brand-cyan">cyber_messages</code>.
-                    Demo credentials: <strong className="text-white">guest</strong> /{" "}
+                    Local simulation panel. Real form messages are persisted in{" "}
+                    <code className="text-brand-cyan">localStorage</code> under key{" "}
+                    <code className="text-brand-cyan">cyber_messages</code>. Demo credentials:{" "}
+                    <strong className="text-white">guest</strong> /{" "}
                     <strong className="text-white">guest</strong>.
                   </p>
                 </div>
@@ -386,8 +389,7 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
                               <span>DB_QUERY_LATENCY</span>
                             </span>
                             <div className="font-display font-medium text-2xl text-[#DBEAEC] font-mono">
-                              {latency}{" "}
-                              <span className="text-[10px] text-brand-pale/50">ms</span>
+                              {latency} <span className="text-[10px] text-brand-pale/50">ms</span>
                             </div>
                           </div>
 
@@ -414,13 +416,8 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
                               disabled={isRefreshing}
                               className="font-mono text-[9px] text-[#111232] font-semibold bg-[#DBEAEC] px-2.5 py-1 rounded hover:bg-brand-lime transition-all flex items-center space-x-1.5 cursor-pointer"
                             >
-                              <RefreshCw
-                                size={10}
-                                className={isRefreshing ? "animate-spin" : ""}
-                              />
-                              <span>
-                                {isRefreshing ? "POLLING..." : "REFRESH_INTEGRITY"}
-                              </span>
+                              <RefreshCw size={10} className={isRefreshing ? "animate-spin" : ""} />
+                              <span>{isRefreshing ? "POLLING..." : "REFRESH_INTEGRITY"}</span>
                             </button>
                           </div>
 
@@ -481,12 +478,8 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
                                   <span className="text-brand-lime font-bold">
                                     NODE_{index + 1}:
                                   </span>
-                                  <span className="text-[#DBEAEC] font-semibold">
-                                    {msg.name}
-                                  </span>
-                                  <span className="text-brand-pale/50">
-                                    &lt;{msg.email}&gt;
-                                  </span>
+                                  <span className="text-[#DBEAEC] font-semibold">{msg.name}</span>
+                                  <span className="text-brand-pale/50">&lt;{msg.email}&gt;</span>
                                 </div>
                                 <span className="text-brand-pale/50 uppercase text-[8.5px]">
                                   {msg.timestamp}
@@ -500,9 +493,7 @@ export default function AdminConsole({ isOpen, onClose }: AdminConsoleProps) {
                               <div className="flex justify-between items-center border-t border-brand-pale/5 pt-1.5 text-[8.5px] font-mono text-brand-pale/50">
                                 <span>DB_INDEX_KEY: {msg.id}.record</span>
                                 <span className="text-brand-cyan uppercase">
-                                  {msg.id.startsWith("demo_")
-                                    ? "DEMO_SEED"
-                                    : "TRANS_OK_SECURE"}
+                                  {msg.id.startsWith("demo_") ? "DEMO_SEED" : "TRANS_OK_SECURE"}
                                 </span>
                               </div>
                             </div>

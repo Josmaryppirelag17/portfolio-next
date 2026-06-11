@@ -1,11 +1,4 @@
-import {
-  serial,
-  varchar,
-  text,
-  timestamp,
-  pgSchema,
-  integer,
-} from "drizzle-orm/pg-core";
+import { serial, varchar, text, timestamp, pgSchema, integer } from "drizzle-orm/pg-core";
 
 const portfolio = pgSchema("portfolio");
 

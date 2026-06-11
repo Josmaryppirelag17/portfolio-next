@@ -50,13 +50,14 @@
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.61.0",
-    "@vitest/coverage-v8": "^4.1.7",
+    "@vitest/coverage-v8": "^4.1.8",
     "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.6",
     "jscpd": "^5.0.6",
     "jsdom": "^29.1.1",
     "postcss": "^8.5.15",
+    "prettier": "^3.8.4",
     "tailwindcss": "^4.1.14",
     "typescript": "~5.8.2",
     "vitest": "^4.1.7"
@@ -68,6 +69,6 @@
   ],
   "packageManager": "pnpm@11.5.1",
   "engines": {
-    "node": "24.x"
+    "node": ">=24.0.00"
   }
 }
