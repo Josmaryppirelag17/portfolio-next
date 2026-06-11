@@ -47,9 +47,8 @@ docs/
 skills-lock.json
 
 # ==============================================================================
-# Testing — privacidad estratégica
+# Testing
 # ==============================================================================
-tests/e2e/
 playwright-report/
 test-results/
 .vercel
