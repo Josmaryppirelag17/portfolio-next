@@ -15,7 +15,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "preflight": "pnpm typecheck && pnpm lint && pnpm test"
+    "preflight": "pnpm typecheck && pnpm lint && pnpm test",
+    "sonar": "sonar-scanner"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
