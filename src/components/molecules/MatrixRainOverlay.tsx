@@ -60,7 +60,6 @@ export default function MatrixRainOverlay({ onClose }: { onClose: () => void }) 
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full object-cover opacity-85 pointer-events-none"
-          aria-hidden="true"
         />
       )}
       <div className="relative z-10 text-center space-y-6 max-w-xl p-6 sm:p-8 bg-black/95 border-3 border-[#00ff66] rounded-xl shadow-[0_0_50px_rgba(0,255,102,0.4)]">

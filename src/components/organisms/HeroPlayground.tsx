@@ -485,8 +485,7 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
                 JOSMARY
               </span>
               <span className="block text-brand-lime flex items-center select-none">
-                PIRELA
-                <span className="inline-block origin-bottom ml-2 text-4xl sm:text-6xl md:text-7xl animate-[star-wiggle_4s_ease-in-out_infinite]">
+                PIRELA<span className="inline-block origin-bottom ml-2 text-4xl sm:text-6xl md:text-7xl animate-[star-wiggle_4s ease-in-out infinite]">
                   <Star />
                 </span>
               </span>
@@ -585,10 +584,16 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
                 handleConfiguratorClick();
               }
             }}
+            onKeyDown={(e) => {
+              if ((e.key === "Enter" || e.key === " ") && !isDragging) {
+                e.preventDefault();
+                handleConfiguratorClick();
+              }
+            }}
             title="Drag mouse/swipe to rotate the 3D space. Click to release sparks!"
           >
             {/* Canvas itself */}
-            <canvas ref={canvasRef} className="w-full h-full max-h-[280px]" aria-hidden="true" />
+            <canvas ref={canvasRef} className="w-full h-full max-h-[280px]" />
 
             {/* Inside Watermark */}
             <div className="absolute bottom-1 right-2 pointer-events-none">
@@ -687,7 +692,7 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
                 max="4"
                 step="0.1"
                 value={rotationSpeed}
-                onChange={(e) => setRotationSpeed(parseFloat(e.target.value))}
+                onChange={(e) => setRotationSpeed(Number.parseFloat(e.target.value))}
                 className="flex-grow accent-brand-pink h-1 bg-brand-bg rounded cursor-pointer"
                 aria-label={`${t("speed")}: ${rotationSpeed}x`}
               />
@@ -705,7 +710,7 @@ export default function HeroPlayground({ isAudioActive, toggleMasterAudio }: Her
                 max="2.0"
                 step="0.1"
                 value={wireframeScale}
-                onChange={(e) => setWireframeScale(parseFloat(e.target.value))}
+                onChange={(e) => setWireframeScale(Number.parseFloat(e.target.value))}
                 className="flex-grow accent-brand-lime h-1 bg-brand-bg rounded cursor-pointer"
                 aria-label={`${t("scale")}: ${wireframeScale}x`}
               />

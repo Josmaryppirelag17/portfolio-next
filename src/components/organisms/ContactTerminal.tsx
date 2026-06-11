@@ -270,6 +270,7 @@ export default function ContactTerminal() {
                 <div
                   className="grid grid-cols-8 gap-1 h-32"
                   role="listbox"
+                  tabIndex={0}
                   aria-label={t("synth_keyboard_aria")}
                   onKeyDown={(e) => {
                     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
