@@ -16,7 +16,7 @@
 
 ## 📊 Quality Audits
 
-| Category | Score (Desktop) | Score (Mobile) | Tool |
+| Category | Score (Desktop) | Score (Mobile) | Tools |
 |---|---|---|---|
 | **Performance** | 90/100 | 81/100 | PageSpeed Insights |
 | **Accessibility** | 88/100 | 88/100 | PageSpeed Insights |
