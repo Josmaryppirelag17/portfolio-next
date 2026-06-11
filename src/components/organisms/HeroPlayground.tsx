@@ -406,7 +406,7 @@ export default function HeroPlayground({
   return (
     <div
       id="inicio"
-      className="relative overflow-hidden w-full bg-brand-bg select-none py-12 md:py-20 lg:py-24 border-b-4 border-brand-bg cyber-grid"
+      className="relative overflow-hidden w-full bg-brand-bg select-none py-12 md:py-20 lg:py-24 min-h-[600px] lg:min-h-[700px] border-b-4 border-brand-bg cyber-grid"
       ref={containerRef}
       onMouseMove={handleMouseMove}
       role="region"

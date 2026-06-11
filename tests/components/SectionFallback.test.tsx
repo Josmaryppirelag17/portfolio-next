@@ -15,6 +15,6 @@ describe("SectionFallback", () => {
 
   it("has min-height class", () => {
     const { container } = render(<SectionFallback />);
-    expect(container.firstChild).toHaveClass("min-h-[32rem]");
+    expect(container.firstChild).toHaveClass("min-h-[40rem]");
   });
 });
