@@ -2,22 +2,12 @@
 
 > Personal portfolio with interactive design, retro widgets, synthesized audio, and obsessive performance.
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
-[![React](https://img.shields.io/badge/React-19-blue)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)](https://www.typescriptlang.org)
-[![Tailwind](https://img.shields.io/badge/Tailwind-4-38B2AC)](https://tailwindcss.com)
-[![Motion](https://img.shields.io/badge/motion-Framer%20Motion-ff69b4)](https://motion.dev)
-[![PostgreSQL](<https://img.shields.io/badge/db-Neon%20(PostgreSQL)-31648D>)](https://neon.tech)
-[![Drizzle](https://img.shields.io/badge/orm-Drizzle-8B5CF6)](https://orm.drizzle.team)
-[![Resend](https://img.shields.io/badge/email-Resend-000000)](https://resend.com)
 [![Sentry](https://img.shields.io/badge/monitoring-Sentry-362D59)](https://sentry.io)
 [![Vitest](https://img.shields.io/badge/tests-Vitest%2BPlaywright%2BK6-green)](https://vitest.dev)
 [![Tests](https://img.shields.io/badge/tests-250%20passed-brightgreen)]()
-[![TypeScript](https://img.shields.io/badge/types-strict-blue)]()
 [![Coverage](https://img.shields.io/badge/coverage-80%25-yellow)]()
 [![Security](https://img.shields.io/badge/CSP-nonce%20based-brightgreen)]()
 [![i18n](https://img.shields.io/badge/i18n-ES%2FEN-ff69b4)]()
-[![Web Audio](https://img.shields.io/badge/audio-Web%20Audio%20API-FF6B6B)]()
 [![Honeypot](https://img.shields.io/badge/antispam-Honeypot%20%2B%20Rate%20Limit-brightgreen)]()
 [![Mozilla Observatory](https://img.shields.io/badge/Mozilla%20Observatory-A%2B-brightgreen)]()
 [![CI](https://github.com/Josmaryppirelag17/portfolio-next/actions/workflows/ci.yml/badge.svg)](https://github.com/Josmaryppirelag17/portfolio-next/actions/workflows/ci.yml)
@@ -27,7 +17,6 @@
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Josmaryppirelag17_portfolio-next&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Josmaryppirelag17_portfolio-next)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Josmaryppirelag17_portfolio-next&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Josmaryppirelag17_portfolio-next)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Josmaryppirelag17_portfolio-next&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Josmaryppirelag17_portfolio-next)
-[![Accessibility](https://img.shields.io/badge/a11y-role%2Faria--label%2Fskip--to--content-brightgreen)]()
 
 ![OG Image](public/og-image.svg)
 
@@ -37,7 +26,7 @@
 
 | Category | Score (Desktop) | Score (Mobile) | Tool |
 |---|---|---|---|
-| **Performance** | 90/100 | 91/100 | PageSpeed Insights |
+| **Performance** | 90/100 | 81/100 | PageSpeed Insights |
 | **Accessibility** | 88/100 | 88/100 | PageSpeed Insights |
 | **Best Practices** | 96/100 | 96/100 | PageSpeed Insights |
 | **SEO** | 100/100 | 100/100 | PageSpeed Insights |
@@ -80,18 +69,8 @@
 | **Interactive Hero** | Canvas-based animated scene with cursor tracking and 3D parallax |
 | **Retro Widgets** | Matrix Rain, Retro Terminal, Pocket Synth, Biorhythm ECG, Core Balancer, Memory Collector |
 | **Sound Engine** | Web Audio API synthesizer with oscillator-based sounds, FM synthesis, and radio static |
-| **Web Worker** | Noise buffer generation off the main thread for audio effects |
-| **Experience Timeline** | Interactive career timeline with milestone cards, hover effects, and keyboard navigation |
-| **Projects Showcase** | Lazy-loaded project cards with console-style detail panel, manifest/logs tabs |
-| **Interactive Skills** | Visual skill representation with animated progress bars, filtering, and level-up interaction |
-| **About Section** | Tabbed bio (Bio / Philosophy / Vibes) with interactive stat bars and 3D CSS avatar |
 | **Contact Terminal** | Terminal-styled contact form with honeypot anti-spam and IP-based rate limiting |
-| **Cyber Console** | Bento-grid telemetry dock with 6 interactive widgets (Matrix, Synth, ECG, Core, RAM, Terminal) |
-| **Matrix Easter Egg** | Hidden Matrix rain effect triggered by logo tap |
 | **i18n** | Spanish (135 keys) and English (134 keys) with hot-switching |
-| **OG Images** | Dynamic Open Graph image generation via `@vercel/og` |
-| **Sitemap** | Dynamic XML sitemap generation |
-| **Rate limiting** | Contact form IP-based rate limiting + honeypot |
 | **Security headers** | CSP nonce-based (Mozilla Observatory A+), HSTS, X-Frame-Options, Permissions-Policy |
 
 ---
