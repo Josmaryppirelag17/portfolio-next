@@ -16,7 +16,7 @@ export default defineConfig({
     screenshot: "only-on-failure",
   },
   webServer: {
-    command: "pnpm dev -- --port 3001",
+    command: "pnpm dev --port 3001",
     url: "http://localhost:3001",
     reuseExistingServer: !process.env.CI,
     timeout: 30000,
