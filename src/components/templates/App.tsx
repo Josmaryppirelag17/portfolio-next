@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, Suspense, lazy } from "react";
-import HeroPlayground from "@/components/organisms/HeroPlayground";
 import SectionFallback from "@/components/atoms/SectionFallback";
 import { soundEngine } from "@/components/organisms/SoundEngine";
 import SiteHeader from "@/components/molecules/SiteHeader";
@@ -15,6 +14,7 @@ import { useMatrixEasterEgg } from "@/hooks/useMatrixEasterEgg";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { capturePageView } from "@/utils/analytics";
 
+const HeroPlayground = lazy(() => import("@/components/organisms/HeroPlayground"));
 const AboutSection = lazy(() => import("../organisms/AboutSection"));
 const ExperienceTimeline = lazy(() => import("../organisms/ExperienceTimeline"));
 const ProjectsShowcase = lazy(() => import("../organisms/ProjectsShowcase"));
@@ -80,7 +80,9 @@ export default function App() {
         className="relative"
         aria-label={t("main_content_label") || "Main content"}
       >
-        <HeroPlayground isAudioActive={isAudioActive} toggleMasterAudio={toggleMasterAudio} />
+        <Suspense fallback={<div className="min-h-[600px] lg:min-h-[700px] w-full bg-brand-bg" />}>
+          <HeroPlayground isAudioActive={isAudioActive} toggleMasterAudio={toggleMasterAudio} />
+        </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <AboutSection />
         </Suspense>
