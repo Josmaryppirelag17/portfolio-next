@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Space_Grotesk, Syne } from "next/font/google";
+import { headers } from "next/headers";
 import { StructuredData } from "@/components/atoms/StructuredData";
 import "./globals.css";
 
@@ -68,9 +69,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = (await headers()).get("x-nonce") ?? "";
+
   return (
-    <html lang="es" className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} ${syne.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} ${syne.variable}`} nonce={nonce} suppressHydrationWarning>
       <body>
         <StructuredData />
         {children}
