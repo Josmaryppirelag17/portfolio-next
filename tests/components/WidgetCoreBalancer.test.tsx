@@ -74,11 +74,10 @@ describe("WidgetCoreBalancer", () => {
     fireEvent.change(screen.getByLabelText("PLUTONIUM SHIELD FLUX"), { target: { value: "100" } });
     fireEvent.change(screen.getByLabelText("plasma CONDENSATE"), { target: { value: "100" } });
     fireEvent.change(screen.getByLabelText("WARP CORE STRETCH"), { target: { value: "100" } });
-    vi.advanceTimersByTime(100);
     fireEvent.click(screen.getByText(/EMERGENCY COOLANT DEPRESSURIZE/));
+    expect(onCoreStateChange).toHaveBeenCalledWith("venting");
     expect(mockPlaySuccess).toHaveBeenCalled();
     vi.advanceTimersByTime(2000);
-    expect(onCoreStateChange).toHaveBeenCalledWith("venting");
     expect(onCoreStateChange).toHaveBeenCalledWith("stable");
     vi.useRealTimers();
   });
