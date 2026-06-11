@@ -4,4 +4,9 @@ export function captureFormSubmit(_payload: { name: string; email: string }): vo
 
 export function captureFormError(_error: string, _status?: number): void {}
 
-export function captureApiCall(_method: string, _path: string, _status: number, _durationMs: number): void {}
+export function captureApiCall(
+  _method: string,
+  _path: string,
+  _status: number,
+  _durationMs: number,
+): void {}

@@ -1,11 +1,7 @@
 export type Language = "es" | "en";
 export interface SkillItem {
   name: string;
-  category:
-    | "Architecture"
-    | "Systems & Security"
-    | "Tooling & DevOps"
-    | "Creative Engineering";
+  category: "Architecture" | "Systems & Security" | "Tooling & DevOps" | "Creative Engineering";
   level: number;
   color: string;
 }
@@ -27,7 +23,7 @@ export const SKILLS_DATA: SkillItem[] = [
     name: "Vite",
     category: "Architecture",
     level: 84,
-    color: "brand-cyan"
+    color: "brand-cyan",
   },
   {
     name: "TypeScript 5.8",
