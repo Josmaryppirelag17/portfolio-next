@@ -1,2 +1,2 @@
-export { runtime } from "@/core/services/SitemapService";
+export const runtime = "edge";
 export { generateSitemapResponse as GET } from "@/core/services/SitemapService";
