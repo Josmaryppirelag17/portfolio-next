@@ -38,7 +38,7 @@ export default defineConfig({
         "src/middleware.ts",
         "src/components/templates/App.tsx",
       ],
-      reporter: ["text", "json", "html"],
+      reporter: ["text", "json", "html", "lcov"],
     },
   },
   resolve: {
