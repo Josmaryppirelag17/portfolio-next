@@ -20,7 +20,7 @@ export default function WidgetBiorhythmECG() {
     let width = canvas.width = 170;
     let height = canvas.height = 100;
     let x = 0;
-    const points: number[] = Array(width).fill(height / 2);
+    const points: number[] = new Array(width).fill(height / 2);
     let frameId: number;
 
     const animateECG = () => {

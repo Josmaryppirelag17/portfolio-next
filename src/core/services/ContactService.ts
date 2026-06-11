@@ -60,7 +60,7 @@ async function sendEmail(
     const resend = new Resend(resendApiKey);
     const safeName = escapeHtml(name);
     const safeEmail = escapeHtml(email);
-    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+    const safeMessage = escapeHtml(message).replaceAll("\n", "<br>");
 
     const emailResult = await resend.emails.send({
       from: process.env.RESEND_FROM ?? "Josmary Pirela <hola@josmarypirela.dev>",

@@ -24,7 +24,7 @@ export default function WidgetMatrixRain() {
     const charList = "アカサタナハマヤラワガザダバパイウエオ0123456789%X_#@$◇◆";
     const fontSize = 8;
     let columns = Math.floor(width / fontSize);
-    let drops: number[] = Array(columns).fill(1).map(() => Math.floor(Math.random() * -20));
+    let drops: number[] = new Array(columns).fill(1).map(() => Math.floor(Math.random() * -20));
     let frameId: number;
 
     const draw = () => {
@@ -51,7 +51,7 @@ export default function WidgetMatrixRain() {
         width = canvas.width = canvasRef.current.clientWidth || 170;
         height = canvas.height = canvasRef.current.clientHeight || 140;
         columns = Math.floor(width / fontSize);
-        drops = Array(columns).fill(1).map(() => Math.floor(Math.random() * -20));
+        drops = new Array(columns).fill(1).map(() => Math.floor(Math.random() * -20));
       }
     });
     resizeObserver.observe(canvas);
