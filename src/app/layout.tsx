@@ -7,7 +7,7 @@ import "./globals.css";
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  display: "swap",
+  display: "optional",
   preload: false,
   fallback: ["Consolas", "Monaco", "monospace"],
 });
@@ -15,15 +15,15 @@ const jetbrainsMono = JetBrains_Mono({
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
-  preload: false,
+  display: "optional",
+  preload: true,
   fallback: ["system-ui", "Arial", "sans-serif"],
 });
 
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-heading",
-  display: "swap",
+  display: "optional",
   preload: false,
   weight: ["700", "800"],
 });
@@ -55,7 +55,14 @@ export const metadata: Metadata = {
       "Portfolio de Josmary Pirela: interfaces interactivas, React, Next.js y experiencias web de alto rendimiento.",
     url: SITE_URL,
     siteName: "Josmary Pirela",
-    images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "Josmary Pirela — Creative Full-Stack Developer" }],
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Josmary Pirela — Creative Full-Stack Developer",
+      },
+    ],
     locale: "es_ES",
     type: "website",
   },
@@ -67,13 +74,24 @@ export const metadata: Metadata = {
     images: [`${SITE_URL}/opengraph-image`],
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const nonce = (await headers()).get("x-nonce") ?? "";
 
   return (
-    <html lang="es" className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} ${syne.variable}`} nonce={nonce} suppressHydrationWarning>
+    <html
+      lang="es"
+      className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} ${syne.variable}`}
+      nonce={nonce}
+      suppressHydrationWarning
+    >
       <body>
         <StructuredData />
         {children}
