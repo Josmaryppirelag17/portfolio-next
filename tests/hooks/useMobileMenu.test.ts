@@ -47,4 +47,15 @@ describe("useMobileMenu", () => {
     act(() => result.current.setIsMobileMenuOpen(true));
     expect(addSpy).toHaveBeenCalledWith("keydown", expect.any(Function));
   });
+
+  it("closes menu on Escape key", () => {
+    const { result } = renderHook(() => useMobileMenu());
+    const el = document.createElement("div");
+    document.body.appendChild(el);
+    (result.current.menuRef as any).current = el;
+    act(() => result.current.setIsMobileMenuOpen(true));
+    act(() => { el.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" })); });
+    expect(result.current.isMobileMenuExiting).toBe(true);
+    document.body.removeChild(el);
+  });
 });

@@ -63,6 +63,21 @@ describe("AboutSection", () => {
     expect(mockPlaySuccess).toHaveBeenCalled();
   });
 
+  it("triggers boost on stat keyboard Enter", () => {
+    render(<AboutSection />);
+    const stat = screen.getByLabelText(/code_efficiency/);
+    fireEvent.keyDown(stat, { key: "Enter" });
+    expect(mockPlaySuccess).toHaveBeenCalled();
+  });
+
+  it("triggers boost on stat keyboard Space", () => {
+    mockPlaySuccess.mockClear();
+    render(<AboutSection />);
+    const stat = screen.getByLabelText(/audio_synths/);
+    fireEvent.keyDown(stat, { key: " " });
+    expect(mockPlaySuccess).toHaveBeenCalled();
+  });
+
   it("renders CyberConsoleWidgets", () => {
     render(<AboutSection />);
     expect(screen.getByTestId("cyber-console-widgets")).toBeDefined();

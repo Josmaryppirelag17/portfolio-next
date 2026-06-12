@@ -2,9 +2,10 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import InteractiveSkills from "@/components/organisms/InteractiveSkills";
 
-const { mockPlayClick, mockPlaySuccess } = vi.hoisted(() => ({
+const { mockPlayClick, mockPlaySuccess, mockPlayHover } = vi.hoisted(() => ({
   mockPlayClick: vi.fn(),
   mockPlaySuccess: vi.fn(),
+  mockPlayHover: vi.fn(),
 }));
 
 vi.mock("@/context/LanguageContext", () => ({
@@ -12,7 +13,7 @@ vi.mock("@/context/LanguageContext", () => ({
 }));
 
 vi.mock("@/components/organisms/SoundEngine", () => ({
-  soundEngine: { playClick: mockPlayClick, playSuccess: mockPlaySuccess },
+  soundEngine: { playClick: mockPlayClick, playSuccess: mockPlaySuccess, playHover: mockPlayHover },
 }));
 
 vi.mock("@/types", () => ({
@@ -64,5 +65,21 @@ describe("InteractiveSkills", () => {
     const reactCard = screen.getByLabelText("React: undefined%");
     fireEvent.keyDown(reactCard, { key: "Enter" });
     expect(mockPlaySuccess).toHaveBeenCalled();
+  });
+
+  it("plays hover sound on mouse enter", () => {
+    render(<InteractiveSkills />);
+    const reactCard = screen.getByLabelText("React: undefined%");
+    fireEvent.mouseEnter(reactCard);
+    expect(mockPlayHover).toHaveBeenCalled();
+  });
+
+  it("resets boost after timeout", () => {
+    vi.useFakeTimers();
+    render(<InteractiveSkills />);
+    const reactCard = screen.getByLabelText("React: undefined%");
+    fireEvent.click(reactCard);
+    vi.advanceTimersByTime(1200);
+    vi.useRealTimers();
   });
 });
