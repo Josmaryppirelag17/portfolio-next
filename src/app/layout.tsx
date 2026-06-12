@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { StructuredData } from "@/components/atoms/StructuredData";
 import GAScript from "@/components/atoms/GAScript";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -97,6 +98,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <GAScript />
         <StructuredData />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
