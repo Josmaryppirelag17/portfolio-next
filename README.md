@@ -17,9 +17,9 @@
 ## 📊 Quality Audits
 
 | Category | Score (Desktop) | Score (Mobile) | Tools |
-|---|---|---|---|
-| **Performance** | 90/100 | 81/100 | PageSpeed Insights |
-| **Accessibility** | 88/100 | 88/100 | PageSpeed Insights |
+|---|---|---|---|---|
+| **Performance** | 92/100 | 68/100 | PageSpeed Insights |
+| **Accessibility** | 93/100 | 93/100 | PageSpeed Insights |
 | **Best Practices** | 96/100 | 96/100 | PageSpeed Insights |
 | **SEO** | 100/100 | 100/100 | PageSpeed Insights |
 | **Security** | A+ 🏆 | A+ 🏆 | Mozilla Observatory |
@@ -38,20 +38,20 @@
 | Metric | Value | Rating |
 |---|---|---|
 | **First Contentful Paint** | 0.3 s | ✅ Good |
-| **Largest Contentful Paint** | 0.5 s | ✅ Good |
-| **Total Blocking Time** | 20 ms | ✅ Good |
-| **Cumulative Layout Shift** | 0.193 | ✅ Good |
-| **Speed Index** | 1.2 s | ✅ Good |
+| **Largest Contentful Paint** | 0.6 s | ✅ Good |
+| **Total Blocking Time** | 0 ms | ✅ Good |
+| **Cumulative Layout Shift** | 0.164 | ✅ Good |
+| **Speed Index** | 1.1 s | ✅ Good |
 
 ### Mobile
 
 | Metric | Value | Rating |
 |---|---|---|
-| **First Contentful Paint** | 0.9 s | ✅ Good |
-| **Largest Contentful Paint** | 2.6 s | ✅ Good |
-| **Total Blocking Time** | 180 ms | ✅ Good |
-| **Cumulative Layout Shift** | 0.062 | ✅ Good |
-| **Speed Index** | 3.3 s | ✅ Good |
+| **First Contentful Paint** | 1.0 s | ✅ Good |
+| **Largest Contentful Paint** | 2.5 s | ✅ Good |
+| **Total Blocking Time** | 10 ms | ✅ Good |
+| **Cumulative Layout Shift** | 0.113 | ✅ Good |
+| **Speed Index** | 4.3 s | ✅ Good |
 
 
 > 🔗 [PageSpeed Insights report](https://pagespeed.web.dev/analysis/https-josmarypirela-dev)
