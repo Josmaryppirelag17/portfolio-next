@@ -17,7 +17,7 @@
 ## 📊 Quality Audits
 
 | Category | Score (Desktop) | Score (Mobile) | Tools |
-|---|---|---|---|---|
+|---|---|---|---|
 | **Performance** | 92/100 | 68/100 | PageSpeed Insights |
 | **Accessibility** | 93/100 | 93/100 | PageSpeed Insights |
 | **Best Practices** | 96/100 | 96/100 | PageSpeed Insights |
@@ -54,7 +54,7 @@
 | **Speed Index** | 4.3 s | ✅ Good |
 
 
-> 🔗 [PageSpeed Insights report](https://pagespeed.web.dev/analysis/https-josmarypirela-dev)
+> 🔗 [PageSpeed Insights report](https://pagespeed.web.dev/analysis/https-josmarypirela-dev/hres7g56xh?form_factor=desktop)
 
 ---
 
@@ -207,7 +207,6 @@ pnpm build && pnpm start       # Production
 ## 🔗 Links
 
 [![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://josmarypirela.dev)
-[![Portfolio](https://img.shields.io/badge/creator-Josmary%20Pirela-ff69b4)](https://josmarypirela.dev)
 
 ---
 
