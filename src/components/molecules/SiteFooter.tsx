@@ -50,7 +50,7 @@ export default function SiteFooter({ t, onScrollToTop }: SiteFooterProps) {
           </div>
         </div>
         <nav aria-label="Enlaces profesionales" className="sr-only">
-          <a href="https://github.com/josmary">GitHub — Josmary Pirela</a>
+          <a href="https://github.com/Josmaryppirelag17">GitHub — Josmary Pirela</a>
         </nav>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center space-x-3 text-left">
