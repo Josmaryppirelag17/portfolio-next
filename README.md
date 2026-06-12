@@ -18,7 +18,7 @@
 
 | Category | Score (Desktop) | Score (Mobile) | Tools |
 |---|---|---|---|
-| **Performance** | 92/100 | 68/100 | PageSpeed Insights |
+| **Performance** | 91/100 | 90/100 | PageSpeed Insights |
 | **Accessibility** | 93/100 | 93/100 | PageSpeed Insights |
 | **Best Practices** | 96/100 | 96/100 | PageSpeed Insights |
 | **SEO** | 100/100 | 100/100 | PageSpeed Insights |
@@ -37,21 +37,21 @@
 
 | Metric | Value | Rating |
 |---|---|---|
-| **First Contentful Paint** | 0.3 s | ✅ Good |
-| **Largest Contentful Paint** | 0.6 s | ✅ Good |
-| **Total Blocking Time** | 0 ms | ✅ Good |
-| **Cumulative Layout Shift** | 0.164 | ✅ Good |
-| **Speed Index** | 1.1 s | ✅ Good |
+| **First Contentful Paint** | 0.3 s |
+| **Largest Contentful Paint** | 0.6 s |
+| **Total Blocking Time** | 40 ms |
+| **Cumulative Layout Shift** | 0.164 |
+| **Speed Index** | 1.7 s |
 
 ### Mobile
 
 | Metric | Value | Rating |
 |---|---|---|
-| **First Contentful Paint** | 1.0 s | ✅ Good |
-| **Largest Contentful Paint** | 2.5 s | ✅ Good |
-| **Total Blocking Time** | 10 ms | ✅ Good |
-| **Cumulative Layout Shift** | 0.113 | ✅ Good |
-| **Speed Index** | 4.3 s | ✅ Good |
+| **First Contentful Paint** | 1.0 s |
+| **Largest Contentful Paint** | 3.1 s |
+| **Total Blocking Time** | 10 ms |
+| **Cumulative Layout Shift** | 0 |
+| **Speed Index** | 4.9 s |
 
 
 > 🔗 [PageSpeed Insights report](https://pagespeed.web.dev/analysis/https-josmarypirela-dev/hres7g56xh?form_factor=desktop)
