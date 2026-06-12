@@ -80,9 +80,9 @@ vi.mock("@/utils/analytics", () => ({
 }));
 
 describe("App", () => {
-  it("renders main sections", () => {
+  it("renders main sections", async () => {
     render(<App />);
-    expect(screen.getByTestId("hero")).toBeDefined();
+    expect(await screen.findByTestId("hero")).toBeDefined();
     expect(screen.getByTestId("site-header")).toBeDefined();
     expect(screen.getByTestId("site-footer")).toBeDefined();
   });
