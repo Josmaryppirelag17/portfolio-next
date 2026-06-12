@@ -22,6 +22,10 @@ vi.mock("@/components/organisms/LanguageContext", () => ({
 
 vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
 
+vi.mock("@vercel/speed-insights/next", () => ({
+  SpeedInsights: () => null,
+}));
+
 describe("RootLayout", () => {
   it("renders without error", () => {
     const { container } = render(<RootLayout><div>Hello</div></RootLayout>);

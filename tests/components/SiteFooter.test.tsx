@@ -26,4 +26,12 @@ describe("SiteFooter", () => {
     const matches = screen.getAllByText(/2026/);
     expect(matches.length).toBeGreaterThanOrEqual(1);
   });
+
+  it("displays CC BY-NC-SA 4.0 attribution", () => {
+    const { container } = render(<SiteFooter t={(k: string) => k} onScrollToTop={() => {}} />);
+    expect(screen.getByText(/CC BY-NC-SA 4.0/)).toBeDefined();
+    expect(screen.getByText("Portfolio Josmary Pirela")).toBeDefined();
+    const authorLink = container.querySelector('a[href*="josmarypirela.dev/?lang=es"]');
+    expect(authorLink).toBeDefined();
+  });
 });
