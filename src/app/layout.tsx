@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Space_Grotesk, Syne } from "next/font/google";
 import { headers } from "next/headers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { StructuredData } from "@/components/atoms/StructuredData";
 import "./globals.css";
 
@@ -95,6 +96,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <StructuredData />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
