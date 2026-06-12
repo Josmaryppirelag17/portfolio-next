@@ -1,0 +1,43 @@
+import { withSentryConfig } from "@sentry/nextjs";
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  serverExternalPackages: ["@sentry/nextjs"],
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 768, 1024, 1280, 1536],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  headers: async () => [
+    {
+      source: "/images/(.*)",
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+    },
+    {
+      source: "/fonts/(.*)",
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+    },
+    {
+      source: "/(.*).(svg|png|jpg|jpeg|webp|avif|ico)",
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+    },
+  ],
+  poweredByHeader: false,
+  reactStrictMode: true,
+  compress: true,
+  generateEtags: true,
+  experimental: {
+    optimizePackageImports: ["lucide-react", "motion"],
+    webpackBuildWorker: true,
+  },
+};
+
+export default withSentryConfig(nextConfig, {
+  org: "student-jss",
+  project: "portfolio-next",
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  hideSourceMaps: true,
+  disableLogger: true,
+  automaticVercelMonitors: true,
+});
