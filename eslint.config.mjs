@@ -18,6 +18,7 @@ const eslintConfig = [
       "dist/**",
       "build/**",
       "next-env.d.ts",
+      "webpack.config.js",
     ],
   },
   nextPlugin.configs["core-web-vitals"],
