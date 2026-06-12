@@ -12,9 +12,16 @@ describe("SentryService", () => {
     vi.resetModules();
   });
 
-  it("initializes Sentry Node.js with DSN", async () => {
+  it("initializes Sentry with DSN when set", async () => {
     vi.stubEnv("SENTRY_DSN", "https://key@o0.ingest.sentry.io/0");
     await import("@/core/services/SentryService");
     expect(sentryInit).toHaveBeenCalled();
+  });
+
+  it("does not initialize Sentry when DSN is not set", async () => {
+    vi.stubEnv("SENTRY_DSN", "");
+    sentryInit.mockClear();
+    await import("@/core/services/SentryService");
+    expect(sentryInit).not.toHaveBeenCalled();
   });
 });

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { generateSitemapResponse } from "@/core/services/SitemapService";
 
 describe("SitemapService", () => {
@@ -33,5 +33,17 @@ describe("SitemapService", () => {
   it("sets cache headers", async () => {
     const res = await generateSitemapResponse();
     expect(res.headers.get("cache-control")).toContain("public");
+  });
+
+  it("returns 500 when generation fails", async () => {
+    vi.resetModules();
+    vi.doMock("@/utils/escape", () => ({
+      escapeXml: () => { throw new Error("mock error"); },
+    }));
+    const mod = await import("@/core/services/SitemapService");
+    const res = await mod.generateSitemapResponse();
+    expect(res.status).toBe(500);
+    const text = await res.text();
+    expect(text).toContain("Failed to generate sitemap");
   });
 });
