@@ -32,7 +32,7 @@ jobs:
 
       - run: pnpm lint
 
-      - run: pnpm test
+      - run: pnpm test:coverage
 
       - name: Upload coverage for SonarCloud
         uses: actions/upload-artifact@v4
