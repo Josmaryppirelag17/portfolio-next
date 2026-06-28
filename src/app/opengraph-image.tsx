@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Josmary Pirela — Creative Full-Stack Developer";
+export const alt = "Josmary Pirela — Creative Software Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -66,7 +66,7 @@ export default function OGImage() {
             fontWeight: 700,
           }}
         >
-          Creative Full-Stack Developer · React · Next.js
+          Creative Software Engineer · React · Next.js
         </div>
       </div>
       <div

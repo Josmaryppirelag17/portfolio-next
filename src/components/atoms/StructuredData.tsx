@@ -17,7 +17,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#person`,
       name: "Josmary Pirela",
       url: SITE_URL,
-      jobTitle: "Creative Full-Stack Developer",
+      jobTitle: "Creative Software Engineer",
       sameAs: ["https://github.com/josmaryppirelag17"],
       knowsAbout: ["React", "TypeScript", "Next.js", "UI Engineering", "Tailwind CSS"],
     },

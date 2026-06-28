@@ -42,7 +42,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Josmary Pirela | Creative Full-Stack Developer",
+    default: "Josmary Pirela | Creative Software Engineer",
     template: "%s | Josmary Pirela",
   },
   description:
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     languages: { es: "/", en: "/en" },
   },
   openGraph: {
-    title: "Josmary Pirela | Creative Full-Stack Developer",
+    title: "Josmary Pirela | Creative Software Engineer",
     description:
       "Portfolio de Josmary Pirela: interfaces interactivas, React, Next.js y experiencias web de alto rendimiento.",
     url: SITE_URL,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Josmary Pirela — Creative Full-Stack Developer",
+        alt: "Josmary Pirela — Creative Software Engineer",
       },
     ],
     locale: "es_ES",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Josmary Pirela | Creative Full-Stack Developer",
+    title: "Josmary Pirela | Creative Software Engineer",
     description:
       "Portfolio de Josmary Pirela: interfaces interactivas, React, Next.js y experiencias web de alto rendimiento.",
     images: [`${SITE_URL}/opengraph-image`],
