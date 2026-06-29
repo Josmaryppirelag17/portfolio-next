@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Share2, FileText, ExternalLink, MessageSquare, Link } from "lucide-react";
+import { Share2, FileText, ExternalLink, MessageSquare } from "lucide-react";
 import { soundEngine } from "@/components/organisms/SoundEngine";
 import { useLanguage } from "@/components/organisms/LanguageContext";
 
@@ -34,16 +34,7 @@ const VERTICAL_ITEMS: VerticalItem[] = [
       </svg>
     ),
   },
-  {
-    id: "codepen",
-    label: "CodePen",
-    url: "https://codepen.io/Josmaryppirelag17",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5" aria-hidden="true">
-        <path d="M12 2L2 7.5v7.5l10 5.5 10-5.5V7.5L12 2zm0 3.3l6.2 3.4-6.2 3.5-6.2-3.5L12 5.3zM4.5 12.2l5.5 3.1v4.1l-5.5-3.1v-4.1zm9.5 3.1l5.5-3.1v4.1l-5.5 3.1v-4.1zm-1 0.1l5.5 3.1-5.5 3.1-5.5-3.1 5.5-3.1z" />
-      </svg>
-    ),
-  },
+
   {
     id: "github",
     label: "GitHub",
@@ -54,12 +45,7 @@ const VERTICAL_ITEMS: VerticalItem[] = [
       </svg>
     ),
   },
-  {
-    id: "linktree",
-    label: "Links",
-    url: "https://link.josmarypirela.dev",
-    icon: <Link size={14} />,
-  },
+
   {
     id: "contact",
     label: "LinkedIn",
@@ -93,11 +79,11 @@ export default function FloatingSocialPanel() {
     {
       id: "saber-mas",
       labelKey: "panel_saber_mas",
-      url: "/links",
+      url: "https://link.josmarypirela.dev",
       icon: <ExternalLink size={14} />,
       accent: "lime",
       ariaKey: "panel_saber_mas_aria",
-      external: false,
+      external: true,
     },
   ];
 
