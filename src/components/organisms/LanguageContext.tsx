@@ -57,7 +57,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     writeLanguage(language);
     document.title =
       language === "es"
-        ? "Josmary Pirela | Desarrolladora Full-Stack Creativa"
+        ? "Josmary Pirela | Ingeniera de Software Creativa"
         : "Josmary Pirela | Creative Software Engineer";
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     document.documentElement.classList.toggle("reduce-motion", mq.matches);
